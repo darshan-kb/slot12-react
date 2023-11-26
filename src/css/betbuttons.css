@@ -1,0 +1,133 @@
+
+.rightsection{
+    width: 70%;
+    height: 100%;
+    float: right;
+}
+.betbuttonboard {
+    width: 900px;
+    height: 700px;
+    background-color: brown;
+    margin-left: 100px;
+    margin-top: 200px;
+    /* position: absolute; */
+}
+
+.bottombuttonlayer{
+    width: 800px;
+    height: 70px;
+    background-color: chocolate;
+    margin-left: 50px;
+    position: absolute;
+}
+
+.bottombuttons{
+    width: 400px;
+    height: 50px;
+    /* background-color:cadetblue; */
+    margin-left: 200px;
+    margin-top: 10px;
+}
+
+.buttonlayer {
+    width: 800px;
+    height: 180px;
+    background-color: rgb(16, 141, 22);
+    margin-left: 50px;
+    margin-top: 15px;
+}
+
+.betbutton {
+    width: 120px;
+    height: 120px;
+    background-color: antiquewhite;
+    border: 10px solid yellow;
+    cursor: pointer;
+}
+
+.buttonandlabel{
+    width: 120px;
+    height: 150px;
+    float: left;
+    margin-top: 5px;
+    margin-left: 30px;
+}
+
+.betlabelandcancelbutton {
+    width: 140px;
+    height: 20px;
+    
+}
+
+.cancelbutton{
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    float: left;
+    cursor: pointer;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+/* base styles */
+* {
+  margin: 0;
+  font-family: "Quicksand";
+  color: #333;
+}
+.betbuttonlabel{
+    width: 120px;
+    height: 20px;
+    background-color: white;
+    float: left;
+    font-weight: bolder;
+}
+
+.buttonlayerbox {
+    background-color: aquamarine;
+    width: 700px;
+    height: 180px;
+    margin-left: 50px;
+    
+}
+
+.betCharacter{
+    font-size: 60px;
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
+}
+
+.betNumber{
+    font-size: 40px;
+    font-weight:bolder;
+    margin-left: 70px;
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
+}
+
+.addbutton{
+    height: 50px;
+    width: 100px;
+    /* margin-top: 10px; */
+    background-color: grey;
+    cursor: pointer;
+    float: left;
+    margin-left: 50px;
+}
+
+.clearbutton{
+    height: 50px;
+    width: 100px;
+    /* margin-top: 10px; */
+    background-color: grey;
+    cursor: pointer;
+    float: left;
+    margin-left: 50px;
+}
+
+.bottombuttontext{
+    margin-top: 15px;
+    font-weight: bolder;
+    font-size: large;
+    color: white;
+}

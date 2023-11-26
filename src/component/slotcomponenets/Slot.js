@@ -1,8 +1,10 @@
 
-import App from "../../App";
 import "../../css/slot.css";
-let res1=[1,2,3,4,5,6,7,8,9,10];
-let res2=[1,2,3,4,5,6,7,8,9,10];
+import Countdown from "./Countdown";
+import SlotHeading from "./SlotHeading";
+import { useEffect } from "react";
+let res1=[0,1,2,3,4,5,6,7,8,9,10,11];
+let res2=[0,1,2,3,4,5,6,7,8,9,10,11];
 let spincount=30;
 const items = [
     '🍉',
@@ -101,6 +103,7 @@ const items = [
   }
 
   async function spin() {
+    console.log("HEllo from spin")
     init(false, 1, spincount)
     
     for (const door of doors) {
@@ -109,7 +112,7 @@ const items = [
       boxes.style.transform = 'translateY(0)';
       await new Promise((resolve) => setTimeout(resolve, duration * 100));
     }
-    
+
   }
 
   function shuffle([...arr]) {
@@ -124,29 +127,53 @@ const items = [
 
 const Slot = () => {
 
-    spin();
+    //init(true,1,spincount);
+    
 
+    useEffect(()=>{
+      let sse = new EventSource("http://localhost:8081/sse");
+      sse.onmessage = (response) => {
+          let resp = JSON.parse(response.data);
+          if(resp.payloadName==="count"){
+            let res = parseInt(resp.payloadValue);
+            console.log("Here "+res);
+            if(res===0){
+              //init();
+              console.log("Here");
+              spin();
+            }
+              //spinWheel(rouletteNumberMap.get(parseInt(resp.payloadValue)));
+          }
+       }
+  })
+    
     return <>
-    <div>
-    <div className="doors">
-                <div className="door">
-                  <div className="boxes">
-                    {/* <!-- <div class="box">?</div> --> */}
+    <div className="slotsection">
+      <SlotHeading></SlotHeading>
+      <Countdown></Countdown>
+      <div className="slots">
+        <div className="doors">
+                  <div className="door">
+                    <div className="boxes">
+                      {/* <!-- <div class="box">?</div> --> */}
+                    </div>
                   </div>
-                </div>
-            
-                <div className="door">
-                  <div className="boxes">
-                    {/* <!-- <div class="box">?</div> --> */}
+              
+                  <div className="door">
+                    <div className="boxes">
+                      {/* <!-- <div class="box">?</div> --> */}
+                    </div>
                   </div>
-                </div>
-            
-                <div className="door">
-                  <div className="boxes">
-                    {/* <!-- <div class="box">?</div> --> */}
+              
+                  <div className="door">
+                    <div className="boxes">
+                      {/* <!-- <div class="box">?</div> --> */}
+                    </div>
                   </div>
-                </div>
-            </div>
+        </div>
+      </div>
+            <button onClick={spin}>Spin</button>
+            <button onClick={init}>Reset</button>
     </div>
     </>
 }

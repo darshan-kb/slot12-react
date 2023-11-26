@@ -35,3 +35,42 @@ box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
     align-items: center;
     font-size: 4vw;
   }
+
+  .slotsection{
+    width: 30%;
+    height:100%;
+    background-color: bisque;
+    float: left;
+  }
+
+  .slothead{
+    width: 100%;
+    height : 150px;
+    background-color: blueviolet;
+    margin-top: 50px;
+  }
+
+  .slotheadtext{
+    font-weight: bolder;
+    font-size: xx-large;
+    color: #fafafa;
+    margin-top: 80px;
+    display:inline-block;
+  }
+
+  .countdowndiv{
+    width: 92%;
+    height : 150px;
+    background-color:cornsilk;
+    border: 20px solid yellow;
+    border-radius: 50px;
+  }
+
+  .countdowntext{
+    font-weight: bolder;
+    font-size: 70px;
+    color: black;
+    margin-top: 40px;
+    display:inline-block;
+    
+  }
