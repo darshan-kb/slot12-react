@@ -2,33 +2,33 @@
 import "../../css/slot.css";
 import Countdown from "./Countdown";
 import SlotHeading from "./SlotHeading";
-import { useEffect } from "react";
-let res1=[0,1,2,3,4,5,6,7,8,9,10,11];
-let res2=[0,1,2,3,4,5,6,7,8,9,10,11];
+import { useEffect, useState } from "react";
+let res1=[];
+let res2=[];
 let spincount=30;
 const items = [
-    '🍉',
     '🍗',
-    '🍭',
-    '🍆',
+    '🍎',
+    '🍌',
     '🍊',
-    '⚔️',
-    '🍹',
-    '🌽',
-    '🍿',
-    '🧨',
-    '☀️',
-    '🛺',
+    '🍋',
+    '🍒',
+    '🍆',
+    '🍉',
+    '🧅',
+    '🥦',
+    '🍄',
+    '🥕',
   ];
   const prizearr = ['N','X2','X3'];
-  const doors = document.querySelectorAll('.door');
-  
+ 
+ //init();
   //document.querySelector('#spinner').addEventListener('click', spin);
   //document.querySelector('#reseter').addEventListener('click', init);
 
   function init(firstInit = true, groups = 1, duration = 1) {
     let count=0;
-    
+    const doors = document.querySelectorAll('.door');
     for (const door of doors) {
       if (firstInit) {
         door.dataset.spinned = '0';
@@ -39,8 +39,8 @@ const items = [
       const boxes = door.querySelector('.boxes');
       const boxesClone = boxes.cloneNode(false);
       const pool = ['❓'];
-
       if (!firstInit) {
+        console.log("From spin");
         const arr = [];
         for (let n = 0; n < (groups > 0 ? groups : 1); n++) {
           arr.push(...items);
@@ -48,17 +48,17 @@ const items = [
         let tmp=[];
         if(count==0){                 //First tile
           for(let i=0;i<12*20;i++){
-            tmp[i] = items[res1[i%12]];
+            tmp[i] = items[res1[i%12]-1];
           }
         }
         else if(count==1){          //Second tile
           for(let i=0;i<12*20;i++){
-            tmp[i] = res1[i%12]+1;
+            tmp[i] = res1[i%12];
           }
         }
         else{                       //Third tile
           for(let i=0;i<9*20;i++){
-            tmp[i] = prizearr[res2[i%3]];
+            tmp[i] = prizearr[res2[i%3]-1];
           }
         }
 
@@ -103,9 +103,8 @@ const items = [
   }
 
   async function spin() {
-    console.log("HEllo from spin")
     init(false, 1, spincount)
-    
+    const doors = document.querySelectorAll('.door');
     for (const door of doors) {
       const boxes = door.querySelector('.boxes');
       const duration = parseInt(boxes.style.transitionDuration);
@@ -126,26 +125,28 @@ const items = [
 
 
 const Slot = () => {
-
-    //init(true,1,spincount);
-    
-
+    init();
     useEffect(()=>{
       let sse = new EventSource("http://localhost:8081/sse");
       sse.onmessage = (response) => {
           let resp = JSON.parse(response.data);
           if(resp.payloadName==="count"){
             let res = parseInt(resp.payloadValue);
-            console.log("Here "+res);
+            //console.log("Here "+res);
             if(res===0){
-              //init();
-              console.log("Here");
-              spin();
+              
             }
               //spinWheel(rouletteNumberMap.get(parseInt(resp.payloadValue)));
           }
+          if(resp.payloadName==="result"){
+            console.log(resp);
+            res1 = resp.slot1;
+            res2 = resp.slot2;
+            init();
+            spin();
+          }
        }
-  })
+  },[])
     
     return <>
     <div className="slotsection">
@@ -172,8 +173,8 @@ const Slot = () => {
                   </div>
         </div>
       </div>
-            <button onClick={spin}>Spin</button>
-            <button onClick={init}>Reset</button>
+            {/* <button onClick={spin}>Spin</button>
+            <button onClick={init}>Reset</button> */}
     </div>
     </>
 }

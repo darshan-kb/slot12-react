@@ -10,7 +10,7 @@ const Countdown = () => {
             if(resp.payloadName==="count"){
                 let res = parseInt(resp.payloadValue);
                 if(res>=0){
-                    console.log(res);
+                    //console.log(res);
                     let countdown = parseInt(res/60)+":"+res%60;
                     setCount(countdown);
                 }

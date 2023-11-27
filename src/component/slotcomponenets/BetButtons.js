@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../../css/betbuttons.css";
 
 const BetButton = ({buttonClickEvent, betSymbol, index, amount, cancelButtonClickEvent}) => {
@@ -14,7 +14,7 @@ const BetButton = ({buttonClickEvent, betSymbol, index, amount, cancelButtonClic
             </div>
             <div className="betlabelandcancelbutton">
                 <div className="betbuttonlabel">
-                    {amount!==0 && amount}
+                    {amount!==0.0 && amount}
                 </div>
                 <div className="cancelbutton" onClick={cancelButtonClickEvent}>
 
@@ -26,9 +26,9 @@ const BetButton = ({buttonClickEvent, betSymbol, index, amount, cancelButtonClic
     </>
 }
 
-const AddBetButton = () =>{
+const AddBetButton = ({addBets}) =>{
     return <>
-    <div className="addbutton">
+    <div className="addbutton" onClick={addBets}>
         <div className="bottombuttontext">
             Add
         </div>
@@ -66,15 +66,42 @@ const BetButtons = () => {
 
     const cancelButtonClickEvent = (index) => {
         let tempArr = betArr.slice();
-        tempArr[index] = 0;
+        tempArr[index] = 0.0;
         setBetArr(tempArr);
     }
 
     const clearBets = () =>{
-        let tempArr = Array(12).fill(0);
+        let tempArr = Array(12).fill(0.0);
         let tempBetIndexArr = Array(12).fill(-1);
         setBetArr(tempArr);
         setBetIndexArr(tempBetIndexArr);
+    }
+
+    const toDoubleArray = () =>{
+        console.log(Number.parseFloat(betArr[0]).toFixed(1));
+        let tmpArr = [];
+        for(let i=0;i<12;i++){
+            tmpArr[i] = Number.parseFloat(betArr[i]).toFixed(1)
+        }
+        return tmpArr;
+    }
+
+    const AddBets = () => {
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+            var requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+                body: JSON.stringify({"bets":betArr})
+              };
+              console.log({"bets":JSON.stringify(betArr)});
+            fetch("http://127.0.0.1:8081/ticket", requestOptions)
+                .then(response => response.text())
+                .then(result => {
+                    console.log(result);
+                    clearBets();
+                })
+                .catch(error => console.log('error', error));
     }
 
     return <>
@@ -116,7 +143,7 @@ const BetButtons = () => {
             </div>
             <div className="bottombuttonlayer">
                     <div className="bottombuttons">
-                        <AddBetButton></AddBetButton>
+                        <AddBetButton addBets={() => AddBets()}></AddBetButton>
                         <ClearButton clearBets={() => clearBets()}></ClearButton>
                     </div>
             </div>
