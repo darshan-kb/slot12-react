@@ -77,14 +77,6 @@ const BetButtons = () => {
         setBetIndexArr(tempBetIndexArr);
     }
 
-    const toDoubleArray = () =>{
-        console.log(Number.parseFloat(betArr[0]).toFixed(1));
-        let tmpArr = [];
-        for(let i=0;i<12;i++){
-            tmpArr[i] = Number.parseFloat(betArr[i]).toFixed(1)
-        }
-        return tmpArr;
-    }
 
     const AddBets = () => {
         var myHeaders = new Headers();
@@ -94,8 +86,7 @@ const BetButtons = () => {
                 headers: myHeaders,
                 body: JSON.stringify({"bets":betArr})
               };
-              console.log({"bets":JSON.stringify(betArr)});
-            fetch("http://127.0.0.1:8081/ticket", requestOptions)
+            fetch(process.env.REACT_APP_TICKET_ADD_URL, requestOptions)
                 .then(response => response.text())
                 .then(result => {
                     console.log(result);
