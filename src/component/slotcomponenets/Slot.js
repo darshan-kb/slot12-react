@@ -40,7 +40,6 @@ const items = [
       const boxesClone = boxes.cloneNode(false);
       const pool = ['❓'];
       if (!firstInit) {
-        console.log("From spin");
         const arr = [];
         for (let n = 0; n < (groups > 0 ? groups : 1); n++) {
           arr.push(...items);
@@ -130,14 +129,6 @@ const Slot = () => {
       let sse = new EventSource("http://localhost:8081/sse");
       sse.onmessage = (response) => {
           let resp = JSON.parse(response.data);
-          if(resp.payloadName==="count"){
-            let res = parseInt(resp.payloadValue);
-            //console.log("Here "+res);
-            if(res===0){
-              
-            }
-              //spinWheel(rouletteNumberMap.get(parseInt(resp.payloadValue)));
-          }
           if(resp.payloadName==="result"){
             console.log(resp);
             res1 = resp.slot1;
