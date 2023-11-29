@@ -126,16 +126,13 @@ const items = [
 const Slot = () => {
     init();
     useEffect(()=>{
-      let sse = new EventSource("http://localhost:8081/sse");
+      let sse = new EventSource(process.env.REACT_APP_SSE_RESULT_URL);
       sse.onmessage = (response) => {
           let resp = JSON.parse(response.data);
-          if(resp.payloadName==="result"){
-            console.log(resp);
             res1 = resp.slot1;
             res2 = resp.slot2;
             init();
             spin();
-          }
        }
   },[])
     
