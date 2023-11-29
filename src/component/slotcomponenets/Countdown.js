@@ -13,7 +13,7 @@ const Countdown = () => {
                     setCount(countdown);
                 }
         }
-    })
+    },[])
 
 
     return <>

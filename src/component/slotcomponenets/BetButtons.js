@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import "../../css/betbuttons.css";
 
 const BetButton = ({buttonClickEvent, betSymbol, index, amount, cancelButtonClickEvent}) => {
@@ -77,8 +77,7 @@ const BetButtons = () => {
         setBetIndexArr(tempBetIndexArr);
     }
 
-
-    const AddBets = () => {
+    const addBets = useCallback(async ()=>{
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
             var requestOptions = {
@@ -86,14 +85,17 @@ const BetButtons = () => {
                 headers: myHeaders,
                 body: JSON.stringify({"bets":betArr})
               };
-            fetch(process.env.REACT_APP_TICKET_ADD_URL, requestOptions)
+              console.log("Added "+process.env.REACT_APP_TICKET_ADD_URL+" "+JSON.stringify({"bets":betArr}));
+              //useEffect(()=>{
+                fetch(process.env.REACT_APP_TICKET_ADD_URL, requestOptions)
                 .then(response => response.text())
                 .then(result => {
                     console.log(result);
                     clearBets();
                 })
                 .catch(error => console.log('error', error));
-    }
+    },[])
+
 
     return <>
         <div className="rightsection">
@@ -134,7 +136,7 @@ const BetButtons = () => {
             </div>
             <div className="bottombuttonlayer">
                     <div className="bottombuttons">
-                        <AddBetButton addBets={() => AddBets()}></AddBetButton>
+                        <AddBetButton addBets={()=>addBets()}></AddBetButton>
                         <ClearButton clearBets={() => clearBets()}></ClearButton>
                     </div>
             </div>
