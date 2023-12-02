@@ -100,8 +100,7 @@ const BetButtons = () => {
 
 
     return <>
-        <div className="rightsection">
-        <ResultQueue></ResultQueue>
+        
         <div className="betbuttonboard">
             <div className="buttonlayer" id="layer1">
                 <div className="buttonlayerbox" id="buttonlayer1">
@@ -144,7 +143,6 @@ const BetButtons = () => {
             </div>
         </div>
             
-        </div>
     </>
 }
 

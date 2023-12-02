@@ -137,9 +137,6 @@ const Slot = () => {
   },[])
     
     return <>
-    <div className="slotsection">
-      <SlotHeading></SlotHeading>
-      <Countdown></Countdown>
       <div className="slots">
         <div className="doors">
                   <div className="door">
@@ -161,9 +158,6 @@ const Slot = () => {
                   </div>
         </div>
       </div>
-            {/* <button onClick={spin}>Spin</button>
-            <button onClick={init}>Reset</button> */}
-    </div>
     </>
 }
 
