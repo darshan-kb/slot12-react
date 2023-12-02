@@ -39,22 +39,22 @@ box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
   .slotsection{
     width: 30%;
     height:100%;
-    background-color: bisque;
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(249,232,51,1) 0%, rgba(250,196,59,1) 100.2% );
     float: left;
   }
 
   .slothead{
     width: 100%;
-    height : 150px;
-    background-color: blueviolet;
-    margin-top: 50px;
+    height : 200px;
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(255,171,0,1) 0%, rgba(255,139,0,1) 90.1% );
+    border-radius: 20px;
   }
 
   .slotheadtext{
     font-weight: bolder;
-    font-size: xx-large;
+    font-size:50px;
     color: #fafafa;
-    margin-top: 80px;
+    margin-top: 50px;
     display:inline-block;
   }
 
@@ -64,6 +64,7 @@ box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
     background-color:cornsilk;
     border: 20px solid yellow;
     border-radius: 50px;
+    margin-top: 50px;
   }
 
   .countdowntext{
@@ -73,4 +74,9 @@ box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
     margin-top: 40px;
     display:inline-block;
     
+  }
+
+  .container{
+    width: 100%;
+    height:100%;
   }

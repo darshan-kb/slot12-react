@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import "../../css/betbuttons.css";
+import ResultQueue from "./ResultQueue";
+
 
 const BetButton = ({buttonClickEvent, betSymbol, index, amount, cancelButtonClickEvent}) => {
     return <>
@@ -77,13 +79,13 @@ const BetButtons = () => {
         setBetIndexArr(tempBetIndexArr);
     }
 
-    const addBets = useCallback(async ()=>{
+    const addBets =()=>{
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
             var requestOptions = {
                 method: 'POST',
                 headers: myHeaders,
-                body: JSON.stringify({"bets":betArr})
+                body: JSON.stringify({"bets":betArr}),
               };
               console.log("Added "+process.env.REACT_APP_TICKET_ADD_URL+" "+JSON.stringify({"bets":betArr}));
               //useEffect(()=>{
@@ -91,14 +93,16 @@ const BetButtons = () => {
                 .then(response => response.text())
                 .then(result => {
                     console.log(result);
+                    if(result="Draw close"){
+                        alert("Draw closed!")
+                    }
                     clearBets();
                 })
                 .catch(error => console.log('error', error));
-    },[])
+    };
 
 
     return <>
-        <div className="rightsection">
         
         <div className="betbuttonboard">
             <div className="buttonlayer" id="layer1">
@@ -142,7 +146,6 @@ const BetButtons = () => {
             </div>
         </div>
             
-        </div>
     </>
 }
 

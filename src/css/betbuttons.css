@@ -3,11 +3,11 @@
     width: 70%;
     height: 100%;
     float: right;
+    background-image: radial-gradient( circle farthest-corner at 1.3% 2.8%,  rgba(239,249,249,1) 0%, rgba(182,199,226,1) 100.2% );
 }
 .betbuttonboard {
     width: 900px;
     height: 700px;
-    background-color: brown;
     margin-left: 100px;
     margin-top: 200px;
     /* position: absolute; */
@@ -16,7 +16,7 @@
 .bottombuttonlayer{
     width: 800px;
     height: 70px;
-    background-color: chocolate;
+    /* background-color: chocolate; */
     margin-left: 50px;
     position: absolute;
 }
@@ -32,7 +32,6 @@
 .buttonlayer {
     width: 800px;
     height: 180px;
-    background-color: rgb(16, 141, 22);
     margin-left: 50px;
     margin-top: 15px;
 }
@@ -84,7 +83,6 @@
 }
 
 .buttonlayerbox {
-    background-color: aquamarine;
     width: 700px;
     height: 180px;
     margin-left: 50px;
