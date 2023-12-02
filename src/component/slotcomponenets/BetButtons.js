@@ -93,6 +93,9 @@ const BetButtons = () => {
                 .then(response => response.text())
                 .then(result => {
                     console.log(result);
+                    if(result="Draw close"){
+                        alert("Draw closed!")
+                    }
                     clearBets();
                 })
                 .catch(error => console.log('error', error));

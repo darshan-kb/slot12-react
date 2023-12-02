@@ -1,25 +1,27 @@
 .queuecontainer{
     width:70%;
     height:200px;
-    background-color:beige;
     position: absolute;
 }
 
 .queuebox{
-    width: 900px;
+    width: 870px;
     height:180px;
     margin-left: 100px;
     margin-top: 20px;
-    background-color: bisque;
+    background-image: radial-gradient( circle 588px at 31.7% 40.2%,  rgba(225,200,239,1) 21.4%, rgba(163,225,233,1) 57.1% );
+    border-radius: 10px;
 }
 
 .qbox{
     width: 130px;
     height:130px;
+    margin-top: 10px;
     margin-left: 20px;
-    background-color:darkkhaki;
+    background-image: radial-gradient( circle farthest-corner at 5.3% 17.2%,  rgba(255,208,253,1) 0%, rgba(255,237,216,1) 90% );
     float: left;
-    border: solid yellow 10px;
+    border: solid red 10px;
+    border-radius: 10px;
 }
 
 .qemoji{
