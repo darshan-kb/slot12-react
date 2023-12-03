@@ -9,7 +9,7 @@ import SockJS from "sockjs-client";
 import { useEffect, useState } from "react";
 import "../css/slot.css";
 import "../css/betbuttons.css";
-
+import Navbar from "./Navbar";
 let res1=[];
 let res2=[];
 let spincount=30;
@@ -126,7 +126,26 @@ const Slotmachine = () =>{
     const[queueList, setQueueList] = useState(Array(5).fill([0,0]));
     const[queueLoading, setQueueLoading] = useState(false);
     var stompClient =null;
-    
+    const [balance, setBalance] = new useState(0);
+    const token = sessionStorage.getItem('id_token');
+    const headers = new Headers();
+    headers.set('Content-type','plain/text');
+    headers.set('Authorization', `Bearer ${token}`);
+
+    useEffect(()=>{
+      var requestOptions = {
+          method: 'GET',
+          mode: 'cors',
+          headers: headers
+        };
+      fetch(process.env.REACT_APP_ACCOUNT_BALANCE, requestOptions)
+          .then(response => response.text())
+          .then(result => setBalance(JSON.parse(result)))
+          .catch(error => console.log('error', error));
+    },[])
+    const updateBalance = (value) => {
+      setBalance(value);
+    }
     useEffect(()=>{
         const onConnected = (frame) => {
             console.log("connected to ws --"+ frame);
@@ -144,9 +163,15 @@ const Slotmachine = () =>{
             getQueueOnConnect();
             getResultIfSpinStart();
         }
+
         const getQueueOnConnect = () => {
+          const token = sessionStorage.getItem('id_token');
+          const headers = new Headers();
+          headers.set('Content-type','plain/text');
+          headers.set('Authorization', `Bearer ${token}`);
             var requestOptions = {
                 method: 'GET',
+                headers: headers
               };
                 fetch(process.env.REACT_APP_QUEUE, requestOptions)
                 .then(response => response.text())
@@ -159,8 +184,13 @@ const Slotmachine = () =>{
                 .catch(error => console.log('error', error));
         }
         const getResultIfSpinStart = () =>{
+          const token = sessionStorage.getItem('id_token');
+          const headers = new Headers();
+          headers.set('Content-type','plain/text');
+          headers.set('Authorization', `Bearer ${token}`);
             var requestOptions = {
                 method: 'GET',
+                headers: headers
               };
                 fetch(process.env.REACT_APP_RESULT, requestOptions)
                 .then(response => response.text())
@@ -215,6 +245,7 @@ const Slotmachine = () =>{
 
     return <>
         <div className="container">
+        <Navbar balance={balance} theme={"black"} headingflag={false}/>
             <div className="slotsection">
                 <SlotHeading></SlotHeading>
                 <Countdown count={count}></Countdown>
@@ -222,7 +253,7 @@ const Slotmachine = () =>{
             </div>
             <div className="rightsection">
                 <ResultQueue queueList={queueList} loading={queueLoading}></ResultQueue>
-                <BetButtons></BetButtons>
+                <BetButtons updateBalance={updateBalance}></BetButtons>
             </div>
         </div>
         

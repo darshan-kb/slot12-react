@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import "../../css/betbuttons.css";
 import ResultQueue from "./ResultQueue";
+import Navbar from "../Navbar";
 
 
 const BetButton = ({buttonClickEvent, betSymbol, index, amount, cancelButtonClickEvent}) => {
@@ -48,7 +49,7 @@ const ClearButton = ({clearBets}) =>{
     </>
 }
 
-const BetButtons = () => {
+const BetButtons = ({updateBalance}) => {
     let layerButtons = [1,2,3,4];
     let betSymbol = ['🍗','🍎','🍌','🍊','🍋','🍒','🍆','🍉','🧅','🥦','🍄','🥕'];
     let betAmounts = [5,10,20,50,100,500,1000];
@@ -80,31 +81,43 @@ const BetButtons = () => {
     }
 
     const addBets =()=>{
-        var myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
+        const token = sessionStorage.getItem('id_token');
+        const headers = new Headers();
+        headers.set('Authorization', `Bearer ${token}`);
+        headers.append("Content-Type", "application/json");
+        console.log(token);
             var requestOptions = {
                 method: 'POST',
-                headers: myHeaders,
+                headers: headers,
                 body: JSON.stringify({"bets":betArr}),
               };
               console.log("Added "+process.env.REACT_APP_TICKET_ADD_URL+" "+JSON.stringify({"bets":betArr}));
               //useEffect(()=>{
                 fetch(process.env.REACT_APP_TICKET_ADD_URL, requestOptions)
-                .then(response => response.text())
-                .then(result => {
-                    console.log(result);
-                    if(result="Draw close"){
-                        alert("Draw closed!")
+                .then(response => {
+                    console.log(response.status);
+                    if(response.status===200){
+                        updateBalance(response.text());
                     }
-                    clearBets();
+                    else if(response.status===400){
+                        alert("Draw closed")
+                    }
+                    else if(response.status===500){
+                        alert("Insufficient balance or Error on the server")
+                    }
+                    else{
+                        alert("Something went wrong");
+                    }
+                    return response.text();
                 })
-                .catch(error => console.log('error', error));
+                .catch(error => alert(error));
     };
 
 
     return <>
         
         <div className="betbuttonboard">
+        
             <div className="buttonlayer" id="layer1">
                 <div className="buttonlayerbox" id="buttonlayer1">
                     {
