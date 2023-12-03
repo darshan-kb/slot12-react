@@ -1,0 +1,29 @@
+.slotnavbar{
+    width:1000px;
+    height:20px;
+    margin-top: 10px;
+    margin-left: 200px;
+    /* background-color: blanchedalmond; */
+    position: absolute;
+}
+.navtoolbar{
+    width:700px;
+    height:20px;
+    margin-left: 700px;
+    position: absolute;
+    /* background-color: burlywood; */
+}
+.heading{
+    float:left;
+}
+.userlabel{
+    float:left;
+    width:300px;
+}
+.links{
+    float:left;
+    margin-left: 20px;
+}
+.logoutbutton{
+    float:left;
+}
