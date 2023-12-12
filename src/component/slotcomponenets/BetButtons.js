@@ -95,20 +95,24 @@ const BetButtons = ({updateBalance}) => {
               //useEffect(()=>{
                 fetch(process.env.REACT_APP_TICKET_ADD_URL, requestOptions)
                 .then(response => {
-                    console.log(response.status);
+                    let text = response.text();
                     if(response.status===200){
-                        updateBalance(response.text());
+                        return text;
                     }
                     else if(response.status===400){
-                        alert("Draw closed")
+                        throw new Error("Draw close");
                     }
                     else if(response.status===500){
-                        alert("Insufficient balance or Error on the server")
+                        throw new Error("Insufficient balance");
                     }
                     else{
-                        alert("Something went wrong");
+                        throw new Error("Error");
                     }
-                    return response.text();
+                    
+                })
+                .then(result=>{
+                    updateBalance(result);
+                    clearBets();
                 })
                 .catch(error => alert(error));
     };
