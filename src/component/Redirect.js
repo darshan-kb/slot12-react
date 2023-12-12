@@ -20,8 +20,8 @@ const Redirect = () => {
             headers.append('Authorization', `Basic ${Buffer.from(`${client}:${secret}`).toString('base64')}`);
 
             const verifier = sessionStorage.getItem('codeVerifier');
-            
-            const initialUrl = 'http://localhost:8080/oauth2/token?client_id=slotclient&redirect_uri=http://localhost:3006/authorized&grant_type=authorization_code';
+            //console.log(verifier);
+            const initialUrl = process.env.REACT_APP_INITIAL_URL;
             const url = `${initialUrl}&code=${code}&code_verifier=${verifier}`;
             console.log(url);
             fetch(url, {
@@ -42,7 +42,7 @@ const Redirect = () => {
     useEffect(() => {
         if(!searchParams?.get('code')){
             const codeChallenge = sessionStorage.getItem('codeChallenge');
-            const link = `http://localhost:8080/oauth2/authorize?response_type=code&client_id=slotclient&scope=openid&redirect_uri=http://localhost:3006/authorized&code_challenge=${codeChallenge}&code_challenge_method=S256`;
+            const link = process.env.REACT_APP_AUTH_LINK+codeChallenge+'&code_challenge_method=S256';
           
             window.location.href = link;
         }
