@@ -24,7 +24,7 @@ const Navbar = ({balance, theme, headingflag}) => {
             }).catch((err)=>{
                 console.log(err);
             });
-        });
+        },[]);
     
     const logout = () =>{
         sessionStorage.clear();
