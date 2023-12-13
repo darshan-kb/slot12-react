@@ -125,8 +125,10 @@ const Slotmachine = () =>{
     const [count, setCount] = useState("0:0");
     const[queueList, setQueueList] = useState(Array(5).fill([0,0]));
     const[queueLoading, setQueueLoading] = useState(false);
+    const[lastResult, setLastResult] = useState(Array(3).fill(['','','']));
     var stompClient =null;
     const [balance, setBalance] = new useState(0);
+
     const token = sessionStorage.getItem('id_token');
     const headers = new Headers();
     headers.set('Content-type','plain/text');
@@ -146,6 +148,25 @@ const Slotmachine = () =>{
     const updateBalance = (value) => {
       setBalance(value);
     }
+    useEffect(()=>{
+      var requestOptions = {
+        method: 'GET',
+        mode: 'cors',
+        headers: headers
+      };
+    fetch(process.env.REACT_APP_GAME_LASTGAME, requestOptions)
+        .then(response => response.text())
+        .then(result => {
+          result =JSON.parse(result);
+          let tmpLastResult = lastResult.slice();
+          tmpLastResult[0] = items[result.slot1-1];
+          tmpLastResult[1] = result.slot1;
+          tmpLastResult[2] = prizearr[result.slot2-1];
+          console.log(tmpLastResult+"in fetch");
+          setLastResult(tmpLastResult);
+        })
+        .catch(error => console.log('error', error));
+    },[])
     useEffect(()=>{
         const onConnected = (frame) => {
             console.log("connected to ws --"+ frame);
@@ -249,11 +270,11 @@ const Slotmachine = () =>{
             <div className="slotsection">
                 <SlotHeading></SlotHeading>
                 <Countdown count={count}></Countdown>
-                <Slot></Slot>
+                <Slot lastResult={lastResult}></Slot>
             </div>
             <div className="rightsection">
                 <ResultQueue queueList={queueList} loading={queueLoading}></ResultQueue>
-                <BetButtons updateBalance={updateBalance}></BetButtons>
+                <BetButtons updateBalance={updateBalance} lastResult={lastResult}></BetButtons>
             </div>
         </div>
         

@@ -35,6 +35,13 @@ box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
     align-items: center;
     font-size: 4vw;
   }
+  .staticbox{
+    font-size: 4vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2vw;
+  }
 
   .slotsection{
     width: 30%;
