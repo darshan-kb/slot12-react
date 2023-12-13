@@ -33,26 +33,25 @@ import { useEffect, useState } from "react";
   }
 
 
-const Slot = () => {
-    
+const Slot = ({lastResult}) => {
     return <>
       <div className="slots">
         <div className="doors">
                   <div className="door">
                     <div className="boxes">
-                      {/* <!-- <div class="box">?</div> --> */}
+                      <div className="staticbox">{lastResult[0]}</div>
                     </div>
                   </div>
               
                   <div className="door">
                     <div className="boxes">
-                      {/* <!-- <div class="box">?</div> --> */}
+                      <div className="staticbox">{lastResult[1]}</div>
                     </div>
                   </div>
               
                   <div className="door">
                     <div className="boxes">
-                      {/* <!-- <div class="box">?</div> --> */}
+                      <div className="staticbox">{lastResult[2]}</div>
                     </div>
                   </div>
         </div>
