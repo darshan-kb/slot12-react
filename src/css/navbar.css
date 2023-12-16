@@ -7,9 +7,9 @@
     position: absolute;
 }
 .navtoolbar{
-    width:700px;
+    width:800px;
     height:20px;
-    margin-left: 700px;
+    margin-left: 500px;
     position: absolute;
     /* background-color: burlywood; */
 }

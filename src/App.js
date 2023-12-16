@@ -5,6 +5,7 @@ import Slotmachine from './component/Slotmachine';
 import Redirect from './component/Redirect';
 import Login from './component/Login';
 import Home from './component/Home';
+import Claim from './component/Claim';
 function App() {
   return (
     <div className="App">
@@ -15,6 +16,7 @@ function App() {
       <Route path="/redirect" element={<Redirect/>}></Route>
       <Route path="/authorized" element={<Redirect/>}></Route>
       <Route path="/" element={<Home/>}></Route>
+      <Route path="/claims" element={<Claim/>}></Route>
       </Routes>
         
       </BrowserRouter>
