@@ -55,6 +55,12 @@ const Navbar = ({balance, theme, headingflag}) => {
              {
                  flag===true && <div style={{float:"left", }}><a style={{color:theme}} href="/slotmachine">Game </a></div>
              }
+             
+        </div>
+        <div className='links'>
+        {
+                flag===true && <div style={{float:"left", color:theme}}><a style={{color:theme}} href="/claims">Claims </a></div>
+            }
         </div>
         <div className='links'>
              {
