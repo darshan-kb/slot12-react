@@ -1,14 +1,14 @@
 .queuecontainer{
-    width:70%;
+    width: 1000px;
     height:200px;
-    position: absolute;
+    /* position: absolute; */
     margin-top: 50px;
 }
 
 .queuebox{
     width: 870px;
     height:180px;
-    margin-left: 100px;
+    margin-left: 70px;
     margin-top: 20px;
     background-image: radial-gradient( circle 588px at 31.7% 40.2%,  rgba(225,200,239,1) 21.4%, rgba(163,225,233,1) 57.1% );
     border-radius: 10px;
