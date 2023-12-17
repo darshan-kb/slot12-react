@@ -2,14 +2,21 @@ import { useEffect, useState } from "react";
 import "../../css/queue.css";
 
 
-const QueueBox = ({slot1, slot2}) => {
+const QueueBox = ({slot1, slot2,timestamp}) => {
     let betSymbol = ['🍗','🍎','🍌','🍊','🍋','🍒','🍆','🍉','🧅','🥦','🍄','🥕'];
-    let betMultiple = ['N', 'X2', 'X3']
+    let betMultiple = ['N', 'X2', 'X3'];
+    //console.log(timestamp);
     return <>
         <div className="qbox">
-            <div className="qemoji">
-                {betSymbol[slot1-1]}
+            <div className="qboxtopsection">
+                <div className="qtimestamp">
+                    {timestamp}
+                </div>
+                <div className="qemoji">
+                    {betSymbol[slot1-1]}
+                </div>
             </div>
+            
             <div className="qNumbers">
                 <div className="qno">
                     {slot1}
@@ -24,7 +31,6 @@ const QueueBox = ({slot1, slot2}) => {
 
 const ResultQueue = ({queueList, loading}) =>{
     const iteratorArr = [4,3,2,1,0];
-
     return <>
     <div className="queuecontainer">
         {
@@ -32,8 +38,9 @@ const ResultQueue = ({queueList, loading}) =>{
             <div className="queuebox">
             {
                             iteratorArr.map((i)=>{
+                                
                                 return (
-                                    <QueueBox key={i+"q"} slot1={queueList[i][0]} slot2={queueList[i][1]}></QueueBox>
+                                    <QueueBox key={i+"q"} slot1={queueList[i].slot1} slot2={queueList[i].slot2} timestamp={queueList[i].gameTimestamp}></QueueBox>
                                 );
                             })
             }

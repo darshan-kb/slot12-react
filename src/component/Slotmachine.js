@@ -198,9 +198,16 @@ const Slotmachine = () =>{
                 .then(response => response.text())
                 .then(result => {
                     let tempqueue = JSON.parse(result);
-                    console.log(tempqueue+"tempque");
+                    let tqueue = tempqueue.map(i => {
+                      let time = i.gameTimestamp.split("T")[1].split(":");
+                      return {
+                        slot1 : i.slot1,
+                        slot2 : i.slot2,
+                        gameTimestamp : time[0]+":"+time[1]
+                      };
+                    })
                     setQueueLoading(true);
-                    setQueueList(tempqueue);
+                    setQueueList(tqueue);
                 })
                 .catch(error => console.log('error', error));
         }
@@ -249,8 +256,16 @@ const Slotmachine = () =>{
         }
         const onQueueReceived = (payload) => {
             const queue = JSON.parse(payload.body);
+            let tqueue = queue.map(i => {
+              let time = i.gameTimestamp.split("T")[1].split(":");
+              return {
+                slot1 : i.slot1,
+                slot2 : i.slot2,
+                gameTimestamp : time[0]+":"+time[1]
+              };
+            })
             setQueueLoading(true);
-            setQueueList(queue); 
+            setQueueList(tqueue); 
         }
 
         const onResultReceived = (payload) =>{

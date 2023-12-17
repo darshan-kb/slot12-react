@@ -24,9 +24,17 @@
     border: solid red 10px;
     border-radius: 10px;
 }
-
+.qboxtopsection{
+    width: 130px;
+    height: 90px;
+}
 .qemoji{
-    font-size: 70px;
+    font-size: 65px;
+}
+.qtimestamp{
+    float: right;
+    font-size: 15px;
+    font-weight: bolder;
 }
 
 .qno{
