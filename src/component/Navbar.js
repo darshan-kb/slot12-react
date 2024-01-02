@@ -15,7 +15,6 @@ const Navbar = ({balance, theme, headingflag}) => {
             console.log(url);
             fetch(url,{
                 method: 'GET',
-                mode: 'cors',
                 headers
             }).then(async (demoData) => {
                 const demo = await demoData.text();
