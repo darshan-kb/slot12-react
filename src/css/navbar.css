@@ -27,3 +27,8 @@
 .logoutbutton{
     float:left;
 }
+.adminDiv{
+    width: 70px;
+    margin-left: 15px;
+    float: left;
+}

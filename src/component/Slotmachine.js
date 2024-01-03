@@ -9,7 +9,7 @@ import SockJS from "sockjs-client";
 import { useEffect, useState } from "react";
 import "../css/slot.css";
 import "../css/betbuttons.css";
-import Navbar from "./Navbar";
+import CNavbar from "./CNavbar";
 let res1=[];
 let res2=[];
 let spincount=30;
@@ -281,7 +281,7 @@ const Slotmachine = () =>{
 
     return <>
         <div className="container">
-        <Navbar balance={balance} theme={"black"} headingflag={false}/>
+        <CNavbar balance={balance} theme={"black"} headingflag={false}/>
             <div className="slotsection">
                 <SlotHeading></SlotHeading>
                 <Countdown count={count}></Countdown>

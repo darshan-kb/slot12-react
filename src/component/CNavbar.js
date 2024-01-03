@@ -1,7 +1,12 @@
 import { React, useEffect, useState } from 'react';
 import {demo} from "../links/demo"
 import '../css/navbar.css'
-const Navbar = ({balance, theme, headingflag}) => {
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+const CNavbar = ({balance, theme, headingflag, adminflag}) => {
 
     let [flag, setFlag] = useState(sessionStorage.getItem('id_token') ==null ? false : true);
     const [demoStr, setDemoStr] = useState('');
@@ -61,6 +66,17 @@ const Navbar = ({balance, theme, headingflag}) => {
                 flag===true && <div style={{float:"left", color:theme}}><a style={{color:theme}} href="/claims">Claims </a></div>
             }
         </div>
+        <div className='adminDiv'>
+          {adminflag===true && <NavDropdown
+              id="nav-dropdown-dark-example"
+              title="Admin"
+              menuVariant="dark"
+            >
+              <NavDropdown.Item href="/home">Recharge</NavDropdown.Item>
+              <NavDropdown.Item href="/home">User Details</NavDropdown.Item>
+              {/* <NavDropdown.Divider /> */}
+            </NavDropdown>}
+        </div>
         <div className='links'>
              {
               flag===true && <div style={{float:"left", marginLeft:"16px", color:theme, fontWeight:"bold"}}>Balance : {balance}</div>
@@ -78,4 +94,4 @@ const Navbar = ({balance, theme, headingflag}) => {
     
   }
    
-  export default Navbar;
+  export default CNavbar;

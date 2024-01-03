@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Navbar from "./Navbar";
+import CNavbar from "./CNavbar";
 
 function balance(balance){
     const token = sessionStorage.getItem('id_token');
@@ -83,7 +83,7 @@ const Claim = () =>{
    return(
         <>
         {/* <div>{balance}</div> */}
-        <Navbar balance={balance} theme={"black"}></Navbar>
+        <CNavbar balance={balance} theme={"black"}></CNavbar>
         <div style={{marginTop:"5%", marginLeft:"20%"}}>
             <table>
                 <thead>

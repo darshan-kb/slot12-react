@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import "../../css/betbuttons.css";
 import ResultQueue from "./ResultQueue";
-import Navbar from "../Navbar";
+
 
 
 const BetButton = ({buttonClickEvent, betSymbol, index, amount, cancelButtonClickEvent}) => {
