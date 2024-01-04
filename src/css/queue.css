@@ -1,9 +1,10 @@
 
 .queuecontainer{
-    width: 1000px;
-    height:200px;
+    width: 950px;
+    height:250px;
     position: absolute;
     margin-top: 50px;
+    margin-left: 10px;
 }
 
 .queuebox{
@@ -59,16 +60,16 @@
 
 @media (max-width:1000px){
     .queuecontainer{
-        width: 150px;
-        height:60px;
+        width: 500px;
+        height:70px;
         position: absolute;
-        margin-top: 5px;
+        margin-top: 6px;
     }
     .queuebox{
         width: 400px;
         height:60px;
         margin-left: 60px;
-        margin-top: 10px;
+        margin-top: 0px;
         background-image: radial-gradient( circle 588px at 31.7% 40.2%,  rgba(225,200,239,1) 21.4%, rgba(163,225,233,1) 57.1% );
         border-radius: 10px;
         position: absolute;

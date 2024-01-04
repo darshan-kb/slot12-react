@@ -24,7 +24,7 @@ const CNavbar = ({balance, theme, headingflag, adminflag}) => {
             }).then(async (demoData) => {
                 const demo = await demoData.text();
                 //console.log(demo);
-                setDemoStr(demo);
+                setDemoStr(demo.split('@')[0]);
             }).catch((err)=>{
                 console.log(err);
             });
@@ -40,7 +40,7 @@ const CNavbar = ({balance, theme, headingflag, adminflag}) => {
     return (
       <div className='slotnavbar'>
         <div className='heading'>
-          {headingflag && <h3> Slotmachine Game</h3>}
+          {headingflag && <div className='headingdiv'> Slotmachine Game</div>}
         </div>
         <div className='navtoolbar'>
         

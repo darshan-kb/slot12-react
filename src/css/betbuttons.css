@@ -74,11 +74,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
 /* base styles */
-* {
+/* * {
   margin: 0;
   font-family: "Quicksand";
   color: #333;
-}
+} */
 .betbuttonlabel{
     width: 100px;
     height: 20px;
@@ -141,45 +141,42 @@
     .rightsection{
         margin-left: 250px;
         position: absolute;
-        margin-top: 16px;
-        width: 650px;
-        height: 350px;
+        margin-top: 50px;
+        width: 520px;
+        height: 330px;
         float: left;
-        
     }
     .betbuttonboard {
-    
-        width: 600px;
-        height: 300px;
+        width: 370px;
+        height: 250px;
         margin-left: 50px;
         margin-top: 70px; 
         position: absolute; 
     }
     .bottombuttonlayer{
-        width: 50px;
-        height: 30px;
+        width: 360px;
+        height: 50px;
         /* background-color: chocolate; */
         margin-left: 2px;
         /* position: absolute; */
     }
     .bottombuttons{
-        width: 300px;
+        width: 200px;
         height: 50px;
         /* background-color:cadetblue; */
         margin-left: 120px;
         margin-top: 10px;
     }
     .buttonlayer {
-        width: 650px;
+        width: 280px;
         height: 65px;
         margin-left: 50px;
         margin-top: 1px;
     }
     .buttonlayerbox {
-        width: 600px;
+        width: 260px;
         height: 65px;
         margin-left: 10px;
-        
     }
     
     .buttonandlabel{
@@ -192,7 +189,6 @@
     .betbutton {
         width: 50px;
         height: 50px;
-        background-color: antiquewhite;
         border: 3px solid yellow;
         cursor: pointer;
     }
@@ -215,7 +211,6 @@
     .betlabelandcancelbutton {
         width: 50px;
         height: 10px;
-        
     }
     
     .cancelbutton{

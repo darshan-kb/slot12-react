@@ -32,35 +32,40 @@
     margin-left: 15px;
     float: left;
 }
+.headingdiv{
+    margin-right: 5px;
+}
+
 
 @media (max-width:1000px){
     .slotnavbar{
-        width:800px;
-        height:10px;
+        width:750px;
+        height:20px;
         margin-top: 10px;
-        margin-left: 200px;
-        /* background-color: blanchedalmond; */
+        margin-left: 20px;
         position: absolute;
     }
     .navtoolbar{
-        width:600px;
+        width:500px;
         height:10px;
-        margin-left: 80px;
+        margin-left: 230px;
         position: absolute;
-        /* background-color: burlywood; */
     }
     .heading{
+        font-size: 20px;
         float:left;
+        font-weight: bolder;
     }
     .userlabel{
         float:left;
-        width:200px;
-        font-size: 10px;
+        width:180px;
+        font-size: 12px;
+        font-weight: bolder;
     }
     .links{
-        font-size: 10px;
+        font-size: 12px;
         float:left;
-        margin-left: 8px;
+        margin-left: 6px;
     }
     .logoutbutton{
         width: 30px;
@@ -76,8 +81,12 @@
         font-weight: bold;
     }
     .adminDiv{
-        width: 70px;
+        width: 50px;
         margin-left: 15px;
         float: left;
+    }
+    .headingdiv{
+        margin-right: 20px;
+        font-size: 14px;
     }
 }
