@@ -72,7 +72,7 @@ const CNavbar = ({balance, theme, headingflag, adminflag}) => {
               title="Admin"
               menuVariant="dark"
             >
-              <NavDropdown.Item href="/home">Recharge</NavDropdown.Item>
+              <NavDropdown.Item href="/recharge">Recharge</NavDropdown.Item>
               <NavDropdown.Item href="/home">User Details</NavDropdown.Item>
               {/* <NavDropdown.Divider /> */}
             </NavDropdown>}
@@ -84,7 +84,7 @@ const CNavbar = ({balance, theme, headingflag, adminflag}) => {
         </div>
         <div className='logoutbutton'>
           {
-            flag===true && <div style={{float:"left", marginLeft:"16px"}}><button onClick={logout}>Logout</button></div>
+            flag===true && <div  style={{float:"left"}}><button className='logoutb' onClick={logout}>Logout</button></div>
           }
         </div>
         </div>

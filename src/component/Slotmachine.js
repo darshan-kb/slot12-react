@@ -280,7 +280,7 @@ const Slotmachine = () =>{
 
 
     return <>
-        <div className="container">
+        <div className="slotmachinecontainer">
         <CNavbar balance={balance} theme={"black"} headingflag={false}/>
             <div className="slotsection">
                 <SlotHeading></SlotHeading>
