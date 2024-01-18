@@ -12,6 +12,7 @@ const Recharge = () =>{
     const [isFormDisabled, setIsFormDisabled] = useState(false);
     const [isButtonDisabled, setIsButtonDisabled] = useState(false);
     const [otpId, setOtpId] = useState(0);
+    const [error, setError] = useState("");
     let token = sessionStorage.getItem('id_token');
     let headers = new Headers();
     headers.set('Content-type','application/json');
@@ -27,16 +28,44 @@ const Recharge = () =>{
             body: JSON.stringify({"email":email, "amount":value})
           };
         fetch(process.env.REACT_APP_GAME_RECHARGE, requestOptions)
-            .then(response => response.text())
+            .then(response => {
+                console.log(response.status);
+                if(!response.ok)
+                    return Promise.reject(response);
+                return response.json();
+            })
             .then(result => {
-                console.log(result);
+                console.log(result+" here");
+               // result = JSON.parse(result.text());
+                //console.log(result);
+                // if(result.status!=200){
+                //     console.log("here");
+                //     throw result;
+                // }
                 setOtpId(parseInt(result));
                 setEnableOtpbox(true);
                 setIsFormDisabled(true);
                 setIsButtonDisabled(true);
-                alert("Otp sent on registered Email")
+                setError("Otp sent on your email");
+               // console.log(result);
+                //alert("Otp sent on your email");
             })
-            .catch(error => console.log('error', error));
+            .catch(error => {
+                if (typeof error.json === "function") {
+                    error.json().then(jsonError => {
+                        console.log("Json error from API");
+                        console.log(jsonError);
+                        setError(jsonError.message);
+                    }).catch(genericError => {
+                        console.log("Generic error from API");
+                        console.log(error.statusText);
+                        setError("Error");
+                    });
+                } else {
+                    console.log("Fetch error");
+                    console.log(error);
+                }
+            });
       };
 
       const onOtpSubmit = () => {
@@ -48,17 +77,42 @@ const Recharge = () =>{
             body: JSON.stringify({"otpId":otpId, "otp":otp})
           };
         fetch(process.env.REACT_APP_GAME_RECHARGE_CONFIRM, requestOptions)
-            .then(response => response.text())
+            .then(response => {
+                console.log(response.status);
+                if(!response.ok)
+                    return Promise.reject(response);
+                return response.json();
+            })
             .then(result => {
-                console.log(result);
+                //console.log(result);
                 //setOtpId(parseInt(result));
                 //setEnableOtpbox(true);
+                console.log(result);
+                //result = JSON.parse(result);
+                setError("recharge of "+result.recharge+" added to "+result.user+" current balance is "+result.amount);
                 setIsFormDisabled(false);
                 setIsButtonDisabled(false);
             })
-            .catch(error => console.log('error', error));
+            .catch(error => {
+                if (typeof error.json === "function") {
+                    error.json().then(jsonError => {
+                        console.log("Json error from API");
+                        console.log(jsonError);
+                        setError(jsonError.message);
+                    }).catch(genericError => {
+                        console.log("Generic error from API");
+                        console.log(error.statusText);
+                        setError("Error");
+                    });
+                } else {
+                    console.log("Fetch error");
+                    console.log(error);
+                }
+                setEnableOtpbox(true);
+                setIsFormDisabled(true);
+                setIsButtonDisabled(true);
+            });
       }
-
 
     const amount = [5,10,20,50,100,200,500,1000,2000,5000,10000,20000];
 
@@ -88,13 +142,17 @@ const Recharge = () =>{
                 Submit
             </Button>
             <hr></hr>
+            <p>{error}</p>
             {enableOtpbox && <><Form.Label key="otp">Otp</Form.Label>
                 <Form.Control key="otp_box" type="text" placeholder="Enter otp" value={otp} onChange={(e) => setOtp(e.target.value )}/>
                 <Button variant="primary" onClick={onOtpSubmit}>
                 Submit
             </Button></>}
+            
             </Form>
+            
         </div>
+        
         {/* <Form>
             <div className="form-group">
                 <label for="user">User </label>
