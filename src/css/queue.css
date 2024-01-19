@@ -1,8 +1,10 @@
+
 .queuecontainer{
-    width: 1000px;
-    height:200px;
-    /* position: absolute; */
+    width: 950px;
+    height:250px;
+    position: absolute;
     margin-top: 50px;
+    margin-left: 10px;
 }
 
 .queuebox{
@@ -17,19 +19,20 @@
 .qbox{
     width: 130px;
     height:130px;
-    margin-top: 10px;
-    margin-left: 20px;
+    margin-top: 15px;
+    margin-left: 30px;
     background-image: radial-gradient( circle farthest-corner at 5.3% 17.2%,  rgba(255,208,253,1) 0%, rgba(255,237,216,1) 90% );
     float: left;
     border: solid red 10px;
     border-radius: 10px;
 }
 .qboxtopsection{
-    width: 130px;
-    height: 90px;
+    width: 110px;
+    height: 75px;
 }
 .qemoji{
-    font-size: 65px;
+    position: absolute;
+    font-size: 60px;
 }
 .qtimestamp{
     float: right;
@@ -38,15 +41,78 @@
 }
 
 .qno{
-    font-size: 40px;
+    font-size: 30px;
     font-weight: bolder;
     float: left;
     margin-left: 10px;
 }
 
 .qmultiple{
-    font-size: 40px;
+    font-size: 30px;
     font-weight: bolder;
     float:right;
-    margin-right: 10px;
+    margin-right: 20px;
+}
+.qNumbers{
+    height: 55px;
+    width: 130px;
+}
+
+@media (max-width:1000px){
+    .queuecontainer{
+        width: 500px;
+        height:70px;
+        position: absolute;
+        margin-top: 6px;
+    }
+    .queuebox{
+        width: 400px;
+        height:60px;
+        margin-left: 60px;
+        margin-top: 0px;
+        background-image: radial-gradient( circle 588px at 31.7% 40.2%,  rgba(225,200,239,1) 21.4%, rgba(163,225,233,1) 57.1% );
+        border-radius: 10px;
+        position: absolute;
+    }
+    .qbox{
+        width: 55px;
+        height:55px;
+        margin-top: 2px;
+        margin-left: 20px;
+        background-image: radial-gradient( circle farthest-corner at 5.3% 17.2%,  rgba(255,208,253,1) 0%, rgba(255,237,216,1) 90% );
+        float: left;
+        border: solid red 3px;
+        border-radius: 2px;
+    }
+    .qboxtopsection{
+        width: 40px;
+        height: 35px;
+    }
+    .qemoji{
+        position: absolute;
+        font-size: 25px;
+    }
+    .qtimestamp{
+        float: right;
+        font-size: 7px;
+        font-weight: bolder;
+    }
+    
+    .qno{
+        font-size: 13px;
+        font-weight: bolder;
+        float: left;
+        margin-left: 2px;
+    }
+    
+    .qmultiple{
+        font-size: 13px;
+        font-weight: bolder;
+        float:right;
+        margin-right: 8px;
+    }
+    .qNumbers{
+        height: 5px;
+        width: 50px;
+    }
 }

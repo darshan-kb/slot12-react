@@ -1,6 +1,9 @@
 
+
 .rightsection{
-    
+    margin-left: 500px;
+    position: absolute;
+    margin-top: 40px;
     width: 1000px;
     height: 1000px;
     float: left;
@@ -9,10 +12,10 @@
 .betbuttonboard {
     
     width: 900px;
-    height: 700px;
+    height: 650px;
     margin-left: 70px;
-    /* margin-top: 250px; */
-    /* position: absolute; */
+    margin-top: 250px; 
+    position: absolute; 
 }
 
 .bottombuttonlayer{
@@ -71,13 +74,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
 /* base styles */
-* {
+/* * {
   margin: 0;
   font-family: "Quicksand";
   color: #333;
-}
+} */
 .betbuttonlabel{
-    width: 120px;
+    width: 100px;
     height: 20px;
     background-color: white;
     float: left;
@@ -92,12 +95,14 @@
 }
 
 .betCharacter{
+    height: 55px;
     font-size: 60px;
     -ms-user-select: none; /* Internet Explorer/Edge */
     user-select: none;
 }
 
 .betNumber{
+    height: 60px;
     font-size: 40px;
     font-weight:bolder;
     margin-left: 70px;
@@ -130,4 +135,123 @@
     font-weight: bolder;
     font-size: large;
     color: white;
+}
+
+@media (max-width:1000px){
+    .rightsection{
+        margin-left: 250px;
+        position: absolute;
+        margin-top: 50px;
+        width: 520px;
+        height: 330px;
+        float: left;
+    }
+    .betbuttonboard {
+        width: 370px;
+        height: 250px;
+        margin-left: 50px;
+        margin-top: 70px; 
+        position: absolute; 
+    }
+    .bottombuttonlayer{
+        width: 360px;
+        height: 50px;
+        /* background-color: chocolate; */
+        margin-left: 2px;
+        /* position: absolute; */
+    }
+    .bottombuttons{
+        width: 200px;
+        height: 50px;
+        /* background-color:cadetblue; */
+        margin-left: 120px;
+        margin-top: 10px;
+    }
+    .buttonlayer {
+        width: 280px;
+        height: 65px;
+        margin-left: 50px;
+        margin-top: 1px;
+    }
+    .buttonlayerbox {
+        width: 260px;
+        height: 65px;
+        margin-left: 10px;
+    }
+    
+    .buttonandlabel{
+        width: 60px;
+        height: 60px;
+        float: left;
+        margin-top: 5px;
+        margin-left: 5px;
+    }
+    .betbutton {
+        width: 50px;
+        height: 50px;
+        border: 3px solid yellow;
+        cursor: pointer;
+    }
+
+    .betCharacter{
+        height: 25px;
+        font-size: 23px;
+        -ms-user-select: none; /* Internet Explorer/Edge */
+        user-select: none;
+    }
+    
+    .betNumber{
+        height: 25px;
+        font-size: 18px;
+        font-weight:bolder;
+        margin-left: 20px;
+        -ms-user-select: none; /* Internet Explorer/Edge */
+        user-select: none;
+    }
+    .betlabelandcancelbutton {
+        width: 50px;
+        height: 10px;
+    }
+    
+    .cancelbutton{
+        width: 10px;
+        height: 10px;
+        background-color: red;
+        float: left;
+        cursor: pointer;
+    }
+    .betbuttonlabel{
+        width: 40px;
+        height: 10px;
+        font-size: 9px;
+        background-color: white;
+        float: left;
+        font-weight: bolder;
+    }
+    .addbutton{
+        height: 20px;
+        width: 50px;
+        /* margin-top: 10px; */
+        background-color: grey;
+        cursor: pointer;
+        float: left;
+        margin-left: 0px;
+    }
+    
+    .clearbutton{
+        height: 20px;
+        width: 50px;
+        /* margin-top: 10px; */
+        background-color: grey;
+        cursor: pointer;
+        float: left;
+        margin-left: 30px;
+    }
+    .bottombuttontext{
+        margin-top: 2px;
+        font-weight: bolder;
+        font-size: 12px;
+        color: white;
+    }
+    
 }
