@@ -1,41 +1,40 @@
-.doors {
-    float:none;
+@media (min-width: 1080px) {
+  .doors {
+    float: none;
     width: 100%;
     height: 200px;
-    
-}
-
-.door {
-    float: left;
-background: #fafafa;
-width: 140px;
-height: 180px;
-overflow: hidden;
-border-radius: 5px;
-margin: 0;
-margin-left: 20px;
-margin-top: 30px;
-font-family: 'Quicksand', sans-serif;
-font-weight: 600;
-
-box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
-}
-
-.boxes {
-    /* width: 5%;
-    height: 35%; */
-    
-    transition: transform 1s ease-in-out;
-    
   }
-  
-.box {
+
+  .door {
+    float: left;
+    background: #fafafa;
+    width: 140px;
+    height: 180px;
+    overflow: hidden;
+    border-radius: 5px;
+    margin: 0;
+    margin-left: 20px;
+    margin-top: 30px;
+    font-family: "Quicksand", sans-serif;
+    font-weight: 600;
+
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+  }
+
+  .boxes {
+    /* width: 5%;
+      height: 35%; */
+
+    transition: transform 1s ease-in-out;
+  }
+
+  .box {
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 70px;
   }
-  .staticbox{
+  .staticbox {
     font-size: 70px;
     display: flex;
     justify-content: center;
@@ -43,135 +42,278 @@ box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
     margin-top: 40px;
   }
 
-  .slotsection{
+  .slotsection {
     width: 500px;
-    height:100%;
-    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(249,232,51,1) 0%, rgba(250,196,59,1) 100.2% );
+    height: 100%;
+    background-image: radial-gradient(
+      circle farthest-corner at 10% 20%,
+      rgba(249, 232, 51, 1) 0%,
+      rgba(250, 196, 59, 1) 100.2%
+    );
     float: left;
   }
-  
 
-  .slothead{
+  .slothead {
     width: 100%;
-    height : 200px;
-    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(255,171,0,1) 0%, rgba(255,139,0,1) 90.1% );
+    height: 200px;
+    background-image: radial-gradient(
+      circle farthest-corner at 10% 20%,
+      rgba(255, 171, 0, 1) 0%,
+      rgba(255, 139, 0, 1) 90.1%
+    );
     border-radius: 20px;
   }
 
-  .slotheadtext{
+  .slotheadtext {
     font-weight: bolder;
-    font-size:50px;
+    font-size: 50px;
     color: #fafafa;
     margin-top: 50px;
-    display:inline-block;
+    display: inline-block;
   }
 
-  .countdowndiv{
+  .countdowndiv {
     width: 92%;
-    height : 150px;
-    background-color:cornsilk;
+    height: 150px;
+    background-color: cornsilk;
     border: 20px solid yellow;
     border-radius: 50px;
     margin-top: 50px;
   }
 
-  .countdowntext{
+  .countdowntext {
     font-weight: bolder;
     font-size: 70px;
     color: black;
     /* margin-top: 40px; */
-    display:inline-block;
-    
+    display: inline-block;
   }
 
-  .slotmachinecontainer{
+  .slotmachinecontainer {
     width: 1500px;
-    height:1000px;
-    background-image: radial-gradient( circle farthest-corner at 1.3% 2.8%,  rgba(239,249,249,1) 0%, rgba(182,199,226,1) 100.2% );
+    height: 1000px;
+    background-color: aquamarine;
+    /* background-image: radial-gradient(
+      circle farthest-corner at 1.3% 2.8%,
+      rgba(239, 249, 249, 1) 0%,
+      rgba(182, 199, 226, 1) 100.2%
+    ); */
+  }
+}
+
+@media (max-width: 1080px) {
+  .slotmachinecontainer {
+    /* background-color: purple; */
+    width: 100%;
+    height: 380px;
+    background-image: radial-gradient(
+      circle farthest-corner at 1.3% 2.8%,
+      rgba(239, 249, 249, 1) 0%,
+      rgba(182, 199, 226, 1) 100.2%
+    );
+  }
+  .slotsection {
+    width: 250px;
+    height: 380px;
+    background-image: radial-gradient(
+      circle farthest-corner at 10% 20%,
+      rgba(249, 232, 51, 1) 0%,
+      rgba(250, 196, 59, 1) 100.2%
+    );
+    float: left;
   }
 
-  @media (max-width:1000px) {
-    .slotmachinecontainer{
-      width: 800px;
-      height:380px;
-      background-image: radial-gradient( circle farthest-corner at 1.3% 2.8%,  rgba(239,249,249,1) 0%, rgba(182,199,226,1) 100.2% );
-    }
-    .slotsection{
-      width: 250px;
-      height:100%;
-      background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(249,232,51,1) 0%, rgba(250,196,59,1) 100.2% );
-      float: left;
-    }
-    .slothead{
-      width: 100%;
-      height : 70px;
-      background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(255,171,0,1) 0%, rgba(255,139,0,1) 90.1% );
-      border-radius: 20px;
-    }
-    .slotheadtext{
-      font-weight: bolder;
-      font-size:20px;
-      color: #fafafa;
-      margin-top: 15px;
-      display:inline-block;
-    }
-    .countdowndiv{
-      width: 98%;
-      height : 80px;
-      background-color:cornsilk;
-      border: 8px solid yellow;
-      border-radius: 5px;
-      margin-top: 10px;
-    }
-    .countdowntext{
-      font-weight: bolder;
-      font-size: 40px;
-      color: black;
-      /* margin-top: 40px; */
-      display:inline-block;
-      
-    }
-    .staticbox{
-      font-size: 30px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 20px;
-    }
-    .boxes {
-      /* width: 5%;
-      height: 35%; */
-      
-      transition: transform 1s ease-in-out;
-      
-    }
-    
-  .box {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 30px;
-    }
-    .doors {
-      float:none;
-      width: 100%;
-      height: 100px;
-      
-      }
-      
-      .door {
-          float: left;
-      background: #fafafa;
-      width: 60px;
-      height: 80px;
-      overflow: hidden;
-      border-radius: 5px;
-      margin: 0;
-      margin-left: 15px;
-      margin-top: 20px;
-      font-family: 'Quicksand', sans-serif;
-      font-weight: 600;
-      
-      box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
-      }
+  .slothead {
+    width: 100%;
+    height: 70px;
+    background-image: radial-gradient(
+      circle farthest-corner at 10% 20%,
+      rgba(255, 171, 0, 1) 0%,
+      rgba(255, 139, 0, 1) 90.1%
+    );
+    border-radius: 20px;
   }
+  .slotheadtext {
+    text-align: center;
+    vertical-align: middle;
+    line-height: 60px;
+    font-weight: bolder;
+    font-size: 20px;
+    color: #fafafa;
+    /* margin-top: 15px;
+    display: inline-block; */
+  }
+  .countdowndiv {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    width: 100%;
+    height: 80px;
+    background-color: cornsilk;
+    border: 8px solid yellow;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+  .countdowntext {
+    text-align: center;
+    vertical-align: middle;
+    line-height: 60px;
+    font-weight: bolder;
+    font-size: 40px;
+    color: black;
+    /* margin-left: 20px; */
+    /* margin-top: 40px; */
+    /* display: inline-block; */
+  }
+  .staticbox {
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  .boxes {
+    /* width: 5%;
+      height: 35%; */
+
+    transition: transform 1s ease-in-out;
+  }
+
+  .box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+  }
+  .doors {
+    float: none;
+    width: 100%;
+    height: 100px;
+  }
+
+  .door {
+    float: left;
+    background: #fafafa;
+    width: 60px;
+    height: 80px;
+    overflow: hidden;
+    border-radius: 5px;
+    margin: 0;
+    margin-left: 15px;
+    margin-top: 20px;
+    font-family: "Quicksand", sans-serif;
+    font-weight: 600;
+
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+  }
+}
+
+@media (max-width: 400px) {
+  .slotmachinecontainer {
+    /* background-color: purple; */
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(
+      circle farthest-corner at 1.3% 2.8%,
+      rgba(239, 249, 249, 1) 0%,
+      rgba(182, 199, 226, 1) 100.2%
+    );
+  }
+  .slotsection {
+    width: 100%;
+    height: 280px;
+    background-image: radial-gradient(
+      circle farthest-corner at 10% 20%,
+      rgba(249, 232, 51, 1) 0%,
+      rgba(250, 196, 59, 1) 100.2%
+    );
+    float: left;
+  }
+  .slots {
+    width: 300px;
+    margin-left: 65px;
+  }
+  .slothead {
+    width: 100%;
+    height: 70px;
+    background-image: radial-gradient(
+      circle farthest-corner at 10% 20%,
+      rgba(255, 171, 0, 1) 0%,
+      rgba(255, 139, 0, 1) 90.1%
+    );
+    border-radius: 20px;
+  }
+  .slotheadtext {
+    text-align: center;
+    vertical-align: middle;
+    line-height: 60px;
+    font-weight: bolder;
+    font-size: 20px;
+    color: #fafafa;
+    /* margin-top: 15px;
+    display: inline-block; */
+  }
+  .countdowndiv {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    width: 100%;
+    height: 80px;
+    background-color: cornsilk;
+    border: 8px solid yellow;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+  .countdowntext {
+    text-align: center;
+    vertical-align: middle;
+    line-height: 60px;
+    font-weight: bolder;
+    font-size: 40px;
+    color: black;
+    /* margin-left: 20px; */
+    /* margin-top: 40px; */
+    /* display: inline-block; */
+  }
+  .staticbox {
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0px;
+  }
+  .boxes {
+    /* width: 5%;
+      height: 35%; */
+
+    transition: transform 1s ease-in-out;
+  }
+
+  .box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+  }
+  .doors {
+    float: none;
+    width: 100%;
+    height: 100px;
+  }
+
+  .door {
+    float: left;
+    background: #fafafa;
+    width: 60px;
+    height: 80px;
+    overflow: hidden;
+    border-radius: 5px;
+    margin: 0;
+    margin-left: 15px;
+    margin-top: 20px;
+    font-family: "Quicksand", sans-serif;
+    font-weight: 600;
+
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+  }
+}

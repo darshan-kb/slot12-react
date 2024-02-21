@@ -1,106 +1,82 @@
-import { React, useEffect, useState } from "react";
+import { React, useContext, useEffect, useState } from "react";
 import { demo } from "../links/demo";
 import "../css/navbar.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import useGetUser from "./utils/hooks/useGetUser";
-const CNavbar = ({ balance, theme, headingflag, adminflag }) => {
+import { Link, useNavigate } from "react-router-dom";
+import UserContext from "./utils/UserContext";
+const CNavbar = ({ theme, headingflag }) => {
   let [flag, setFlag] = useState(
     sessionStorage.getItem("id_token") == null ? false : true
   );
   const user = useGetUser();
-
+  const { balance, isAdmin, isAuthorized, setIsAuthorized, setIsAdmin } =
+    useContext(UserContext);
+  const navigate = useNavigate();
+  console.log(balance);
   const logout = () => {
     sessionStorage.clear();
     sessionStorage.removeItem("id_token");
-    window.location.href = "/";
+    setIsAdmin(false);
+    setIsAuthorized(false);
     setFlag(false);
+    window.location.href = "/";
   };
-
+  const gameSelectDropdown = (e) => {
+    navigate(e);
+  };
+  const adminDropdown = (e) => {
+    navigate(e);
+  };
   return (
-    <div className="slotnavbar">
-      <div className="heading">
-        {headingflag && <div className="headingdiv"> Slotmachine Game</div>}
-      </div>
-      <div className="navtoolbar">
-        <div className="userlabel">{user}</div>
-        <div className="links">
-          <a style={{ color: theme }} href="/">
-            Home
-          </a>
-        </div>
-        <div className="links">
-          {flag === false && (
-            <div style={{ float: "left" }}>
-              <a
-                style={{ color: theme }}
-                href="/login"
-                onClick={() => setFlag(true)}
-              >
-                Login
-              </a>
+    <>
+      <div className="navbar2">
+        <div className="newheading">Kazino</div>
+        <div className="toolbar2">
+          {isAuthorized && <div className="navelement">{user}</div>}
+          <div className="navelement">
+            <Link to="/">Home</Link>
+          </div>
+          {!isAuthorized && (
+            <div className="navelement">
+              <Link to="/login">Login</Link>
             </div>
           )}
-        </div>
-        <div className="links">
-          {flag === true && (
-            <div style={{ float: "left" }}>
-              <a style={{ color: theme }} href="/slotmachine">
-                Game{" "}
-              </a>
+          {isAuthorized && (
+            <div className="optiondiv">
+              <select onChange={(e) => gameSelectDropdown(e.target.value)}>
+                <option value={"/"}>Game</option>
+                <option value={"/spin"}>Spin</option>
+                <option value={"/slotmachine"}>Slot</option>
+              </select>
             </div>
           )}
-        </div>
-        <div className="links">
-          {flag === true && (
-            <div style={{ float: "left", color: theme }}>
-              <a style={{ color: theme }} href="/claims">
-                Claims{" "}
-              </a>
+          {isAuthorized && (
+            <div className="navelement">
+              <Link to="/claims">Claims</Link>
             </div>
           )}
-        </div>
-        <div className="adminDiv">
-          {adminflag === true && (
-            <NavDropdown
-              id="nav-dropdown-dark-example"
-              title="Admin"
-              menuVariant="dark"
-            >
-              <NavDropdown.Item href="/recharge">Recharge</NavDropdown.Item>
-              <NavDropdown.Item href="/home">User Details</NavDropdown.Item>
-              {/* <NavDropdown.Divider /> */}
-            </NavDropdown>
+          {isAdmin && (
+            <select onChange={(e) => adminDropdown(e.target.value)}>
+              <option value={"/"}>Admin</option>
+              <option value={"/recharge"}>Recharge</option>
+            </select>
           )}
-        </div>
-        <div className="links">
-          {flag === true && (
+          {isAuthorized && (
+            <div className="navelement">Balance : {balance}</div>
+          )}
+          {isAuthorized && (
             <div
-              style={{
-                float: "left",
-                marginLeft: "16px",
-                color: theme,
-                fontWeight: "bold",
-              }}
+              className="navelement"
+              onClick={() => logout()}
+              style={{ cursor: "pointer" }}
             >
-              Balance : {balance}
-            </div>
-          )}
-        </div>
-        <div className="logoutbutton">
-          {flag === true && (
-            <div style={{ float: "left" }}>
-              <button className="logoutb" onClick={logout}>
-                Logout
-              </button>
+              Logout
             </div>
           )}
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

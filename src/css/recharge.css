@@ -1,11 +1,57 @@
-.userlist{
-    margin-top: 50px;
+.userlist {
+  margin-top: 50px;
 }
 
-.rechargeform{
-    width:500px;
-    height:600px;
+.rechargeform {
+  width: 500px;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.rechargebox {
+  width: 300px;
+  height: 400px;
+  margin: 20px;
+  padding: 20px;
+}
+
+.rechargeelement {
+  padding: 5px;
+  margin: 5px;
+}
+
+.rechargelabel {
+  width: 50px;
+}
+
+@media (max-width: 400px) {
+  .userlist {
+    margin-top: 50px;
+  }
+
+  .rechargeform {
+    width: 300px;
+    height: 500px;
     display: flex;
     justify-content: center;
     margin-top: 50px;
+  }
+
+  .rechargebox {
+    width: 300px;
+    height: 20px;
+    margin: 20px;
+    padding: 20px;
+  }
+
+  .rechargeelement {
+    padding: 5px;
+    margin: 5px;
+  }
+
+  .rechargelabel {
+    width: 50px;
+  }
 }
