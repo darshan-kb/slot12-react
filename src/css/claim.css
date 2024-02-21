@@ -1,0 +1,42 @@
+@media (max-width: 1080px) {
+  .claims {
+    margin-top: 20px;
+    margin-left: 130px;
+  }
+  table,
+  th,
+  td {
+    border: 1px solid black;
+  }
+}
+
+@media (max-width: 400px) {
+  .claims {
+    margin-left: 20px;
+  }
+  .claimstable {
+    height: 100px;
+    width: 350px;
+    margin-top: 50px;
+  }
+  table,
+  th {
+    border: 1px solid black;
+  }
+  th {
+    font-size: 10px;
+    width: 50px;
+    height: 20px;
+  }
+  td {
+    height: 20px;
+    font-size: 12px;
+    width: 20px;
+  }
+  tr {
+    height: 0px;
+    width: 350px;
+  }
+}
+
+/* style={{ color: "black", width: "120px" }} */

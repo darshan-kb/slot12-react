@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import CNavbar from "./CNavbar";
 import useGetBalance from "./utils/hooks/useGetBalance";
 import UserContext from "./utils/UserContext";
+import "../css/claim.css";
 
 function balance(balance) {
   const token = sessionStorage.getItem("id_token");
@@ -31,17 +32,14 @@ function SingleClaim({
 }) {
   return (
     <tr>
-      <td style={{ color: "black", width: "100px" }}>{gameId}</td>
-      <td style={{ color: "black", width: "100px" }}>{ticketId}</td>
-      <td style={{ color: "black", width: "100px" }}>{claimId}</td>
-      <td style={{ color: "black", width: "100px" }}>{betNumber}</td>
-      <td style={{ color: "black", width: "100px" }}>{betAmount}</td>
-      <td style={{ color: "black", width: "120px" }}>{claimAmount}</td>
-      <td style={{ color: "black", width: "120px" }}>
-        <button style={{ width: "100px", height: "25px" }} onClick={redeem}>
-          {" "}
-          Claim{" "}
-        </button>
+      <td>{gameId}</td>
+      <td>{ticketId}</td>
+      <td>{claimId}</td>
+      <td>{betNumber}</td>
+      <td>{betAmount}</td>
+      <td>{claimAmount}</td>
+      <td>
+        <button onClick={redeem}> Claim </button>
       </td>
     </tr>
   );
@@ -101,18 +99,18 @@ const Claim = () => {
   return (
     <>
       {/* <div>{balance}</div> */}
-      <CNavbar balance={balance} theme={"black"}></CNavbar>
-      <div style={{ marginTop: "5%", marginLeft: "20%" }}>
-        <table>
+      <CNavbar balance={balance}></CNavbar>
+      <div className="claims">
+        <table className="claimstable">
           <thead>
             <tr>
-              <th style={{ color: "black", width: "100px" }}>Game Id</th>
-              <th style={{ color: "black", width: "100px" }}>Ticket Id</th>
-              <th style={{ color: "black", width: "100px" }}>Claim Id</th>
-              <th style={{ color: "black", width: "100px" }}>Bet Name</th>
-              <th style={{ color: "black", width: "100px" }}>Bet Amount</th>
-              <th style={{ color: "black", width: "120px" }}>Claim Amount</th>
-              <th style={{ color: "black", width: "120px" }}>Claim</th>
+              <th>Game Id</th>
+              <th>Ticket Id</th>
+              <th>Claim Id</th>
+              <th>Bet Name</th>
+              <th>Bet Amount</th>
+              <th>Claim Amount</th>
+              <th>Claim</th>
             </tr>
 
             {claims.map((claim) => {

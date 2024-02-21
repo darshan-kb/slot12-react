@@ -60,6 +60,7 @@ const CNavbar = ({ theme, headingflag }) => {
             <select onChange={(e) => adminDropdown(e.target.value)}>
               <option value={"/"}>Admin</option>
               <option value={"/recharge"}>Recharge</option>
+              <option value={"/fix"}>Fix</option>
             </select>
           )}
           {isAuthorized && (
