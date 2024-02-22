@@ -6,6 +6,7 @@ import authHeader from "./utils/authHeader";
 const Fix = () => {
   const [slot1, setSlot1] = useState(1);
   const [slot2, setSlot2] = useState(0);
+  const [response, setResponse] = useState("");
   let slot1Option = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   let slot2Option = ["N", "x2", "x3"];
   let slot2OptionIndex = [1, 2, 3];
@@ -21,14 +22,18 @@ const Fix = () => {
   };
   const submit = () => {
     var requestOptions = {
-      method: "POST",
+      method: "PUT",
       mode: "cors",
       headers: headers,
       body: JSON.stringify({ slot1: slot1, slot2: slot2 }),
     };
-    fetch("http://192.168.1.13:8071/slotmachine/admin/fix", requestOptions)
+    fetch(FIX_URL, requestOptions)
       .then((response) => response.text())
-      .then((result) => console.log(result))
+      .then((result) => {
+        if (result == 1) {
+          setResponse("Result fixed successfully");
+        }
+      })
       .catch((error) => console.log("error", error));
   };
 
@@ -41,21 +46,30 @@ const Fix = () => {
       <CNavbar></CNavbar>
       <div className="rechargebox">
         <div className="rechargeelement">
-          <lable className="rechargelabel">Slot 1</lable>
+          <label className="rechargelabel">Slot 1</label>
           <select onChange={(e) => slot1Handle(e.target.value)}>
             {slot1Option.map((i) => {
-              return <option value={i}>{i}</option>;
+              return (
+                <option key={i} value={i}>
+                  {i}
+                </option>
+              );
             })}
           </select>
         </div>
         <div className="rechargeelement">
-          <lable className="rechargelabel"> Slot 2</lable>
+          <label className="rechargelabel"> Slot 2</label>
           <select onChange={(e) => slot2Handle(e.target.value)}>
             {slot2OptionIndex.map((i) => {
-              return <option value={i}>{slot2Option[i - 1]}</option>;
+              return (
+                <option key={slot2Option[i - 1]} value={i}>
+                  {slot2Option[i - 1]}
+                </option>
+              );
             })}
           </select>
         </div>
+        <p style={{ color: "green" }}>{response}</p>
         <div className="rechargeelement">
           <button onClick={() => submit()}>Submit</button>
         </div>
