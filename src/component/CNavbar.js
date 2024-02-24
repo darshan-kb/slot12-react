@@ -1,27 +1,43 @@
 import { React, useContext, useEffect, useState } from "react";
 import { demo } from "../links/demo";
 import "../css/navbar.css";
-import NavDropdown from "react-bootstrap/NavDropdown";
+import { jwtDecode } from "jwt-decode";
 import useGetUser from "./utils/hooks/useGetUser";
 import { Link, useNavigate } from "react-router-dom";
 import UserContext from "./utils/UserContext";
+import useGetBalance from "./utils/hooks/useGetBalance";
 const CNavbar = ({ theme, headingflag }) => {
-  let [flag, setFlag] = useState(
-    sessionStorage.getItem("id_token") == null ? false : true
-  );
+  // let [flag, setFlag] = useState(
+  //   sessionStorage.getItem("id_token") == null ? false : true
+  // );
   const user = useGetUser();
-  const { balance, isAdmin, isAuthorized, setIsAuthorized, setIsAdmin } =
-    useContext(UserContext);
   const navigate = useNavigate();
-  console.log(balance);
   const logout = () => {
     sessionStorage.clear();
     sessionStorage.removeItem("id_token");
     setIsAdmin(false);
     setIsAuthorized(false);
-    setFlag(false);
+    // setFlag(false);
     window.location.href = "/";
   };
+  const { isAdmin, isAuthorized, balance, setIsAdmin, setIsAuthorized } =
+    useContext(UserContext);
+  useGetBalance();
+
+  useEffect(() => {
+    console.log("Here");
+    const token = sessionStorage.getItem("id_token");
+    if (token !== null) {
+      const decodedToken = jwtDecode(token);
+      if (
+        decodedToken.authorities.includes("ROLE_ADMIN") ||
+        decodedToken.authorities.includes("ROLE_USER")
+      )
+        setIsAuthorized(true);
+      if (decodedToken.authorities.includes("ROLE_ADMIN")) setIsAdmin(true);
+    }
+  }, []);
+
   const gameSelectDropdown = (e) => {
     navigate(e);
   };
@@ -60,6 +76,7 @@ const CNavbar = ({ theme, headingflag }) => {
             <select onChange={(e) => adminDropdown(e.target.value)}>
               <option value={"/"}>Admin</option>
               <option value={"/recharge"}>Recharge</option>
+              <option value={"/fix"}>Fix</option>
             </select>
           )}
           {isAuthorized && (

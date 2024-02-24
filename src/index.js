@@ -10,6 +10,7 @@ import Slotmachine from "./component/Slotmachine";
 import Login from "./component/Login";
 import Redirect from "./component/Redirect";
 import Recharge from "./component/Recharge";
+import Fix from "./component/Fix";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const appRouter = createBrowserRouter([
@@ -27,6 +28,7 @@ const appRouter = createBrowserRouter([
       { path: "/redirect", element: <Redirect /> },
       { path: "/authorized", element: <Redirect /> },
       { path: "/recharge", element: <Recharge /> },
+      { path: "/fix", element: <Fix /> },
     ],
   },
 ]);

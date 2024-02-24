@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
+import { useEffect, useContext } from "react";
 import authHeader from "../authHeader";
+import UserContext from "../UserContext";
 const useGetBalance = () => {
-  const [bal, setBal] = new useState(0);
+  const { setBalance } = useContext(UserContext);
   let headers = authHeader();
-  //console.log(headers);
   useEffect(() => {
     var requestOptions = {
       method: "GET",
@@ -12,10 +12,8 @@ const useGetBalance = () => {
     };
     fetch(process.env.REACT_APP_ACCOUNT_BALANCE, requestOptions)
       .then((response) => response.text())
-      .then((result) => setBal(JSON.parse(result)))
+      .then((result) => setBalance(JSON.parse(result)))
       .catch((error) => console.log("error", error));
   }, []);
-
-  return bal;
 };
 export default useGetBalance;
