@@ -11,6 +11,7 @@ import Login from "./component/Login";
 import Redirect from "./component/Redirect";
 import Recharge from "./component/Recharge";
 import Fix from "./component/Fix";
+import Report from "./component/Report";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const appRouter = createBrowserRouter([
@@ -29,6 +30,7 @@ const appRouter = createBrowserRouter([
       { path: "/authorized", element: <Redirect /> },
       { path: "/recharge", element: <Recharge /> },
       { path: "/fix", element: <Fix /> },
+      { path: "/report", element: <Report /> },
     ],
   },
 ]);
