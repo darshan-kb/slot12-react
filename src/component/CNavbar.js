@@ -77,6 +77,7 @@ const CNavbar = ({ theme, headingflag }) => {
               <option value={"/"}>Admin</option>
               <option value={"/recharge"}>Recharge</option>
               <option value={"/fix"}>Fix</option>
+              <option value={"/report"}>Report</option>
             </select>
           )}
           {isAuthorized && (
