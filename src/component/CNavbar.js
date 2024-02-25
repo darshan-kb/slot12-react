@@ -58,7 +58,7 @@ const CNavbar = ({ theme, headingflag }) => {
               <Link to="/login">Login</Link>
             </div>
           )}
-          {isAuthorized && (
+          {
             <div className="optiondiv">
               <select onChange={(e) => gameSelectDropdown(e.target.value)}>
                 <option value={"/"}>Game</option>
@@ -66,7 +66,7 @@ const CNavbar = ({ theme, headingflag }) => {
                 <option value={"/slotmachine"}>Slot</option>
               </select>
             </div>
-          )}
+          }
           {isAuthorized && (
             <div className="navelement">
               <Link to="/claims">Claims</Link>
