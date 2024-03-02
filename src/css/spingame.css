@@ -1,0 +1,17 @@
+.spinleftsection {
+  /* display: "block"; */
+  height: 360px;
+  width: 35%;
+  float: left;
+}
+
+.spincountdowndiv {
+  height: 60px;
+  width: 120px;
+  margin-left: 90px;
+}
+.spincountdownlabel {
+  color: white;
+  font-size: 50px;
+  font-weight: bold;
+}

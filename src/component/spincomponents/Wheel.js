@@ -1,93 +1,59 @@
 import anime from "animejs";
 import React from "react";
 import { useEffect } from "react";
-import '../css/Wheel.css'
+import "../../css/Wheel.css";
+import { SPIN_WEBSOCKET_RESULT_URL, SPIN_WEBSOCKET_URL } from "../utils/Url";
+import { over } from "stompjs";
+import SockJS from "sockjs-client";
 
 const rouletteNumberMap = new Map([
-  [0,0],
-  [28,1],
-  [30,2],
-  [5,3],
-  [4,4],
-  [16,5],
-  [15,6],
-  [14,7],
-  [23,8],
-  [35,9],
-  [2,10],
-  [9,11],
-  [36,12],
-  [26,13],
-  [27,14],
-  [29,15],
-  [17,16],
-  [1,17],
-  [6,18],
-  [21,19],
-  [20,20],
-  [8,21],
-  [12,22],
-  [32,23],
-  [24,24],
-  [11,25],
-  [7,26],
-  [34,27],
-  [33,28],
-  [10,29],
-  [18,30],
-  [25,31],
-  [22,32],
-  [13,33],
-  [3,34],
-  [19,35],
-  [31,36]
+  [0, 0],
+  [28, 1],
+  [30, 2],
+  [5, 3],
+  [4, 4],
+  [16, 5],
+  [15, 6],
+  [14, 7],
+  [23, 8],
+  [35, 9],
+  [2, 10],
+  [9, 11],
+  [36, 12],
+  [26, 13],
+  [27, 14],
+  [29, 15],
+  [17, 16],
+  [1, 17],
+  [6, 18],
+  [21, 19],
+  [20, 20],
+  [8, 21],
+  [12, 22],
+  [32, 23],
+  [24, 24],
+  [11, 25],
+  [7, 26],
+  [34, 27],
+  [33, 28],
+  [10, 29],
+  [18, 30],
+  [25, 31],
+  [22, 32],
+  [13, 33],
+  [3, 34],
+  [19, 35],
+  [31, 36],
 ]);
 
 const rouletteWheelNumbers = [
-  0,
-  32,
-  15,
-  19,
-  4,
-  21,
-  2,
-  25,
-  17,
-  34,
-  6,
-  27,
-  13,
-  36,
-  11,
-  30,
-  8,
-  23,
-  10,
-  5,
-  24,
-  16,
-  33,
-  1,
-  20,
-  14,
-  31,
-  9,
-  22,
-  18,
-  29,
-  7,
-  28,
-  12,
-  35,
-  3,
-  26
+  0, 32, 15, 19, 4, 21, 2, 25, 17, 34, 6, 27, 13, 36, 11, 30, 8, 23, 10, 5, 24,
+  16, 33, 1, 20, 14, 31, 9, 22, 18, 29, 7, 28, 12, 35, 3, 26,
 ];
 
-
 const Wheel = () => {
-  
   var totalNumbers = 37;
-  var singleSpinDuration = 5000;
+  var singleSpinDuration = 15000;
   var singleRotationDegree = 360 / totalNumbers;
   var lastNumber = 0;
 
@@ -162,13 +128,13 @@ const Wheel = () => {
     anime.set([".layer-2", ".layer-4"], {
       rotate: function () {
         return lastNumberRotation;
-      }
+      },
     });
     // reset zero
     anime.set(".ball-container", {
       rotate: function () {
         return 0;
-      }
+      },
     });
 
     anime({
@@ -180,7 +146,7 @@ const Wheel = () => {
       easing: `cubicBezier(${bezier.join(",")})`,
       complete: function (anim) {
         lastNumber = currentNumber;
-      }
+      },
     });
     // aniamte ball
     anime({
@@ -189,23 +155,53 @@ const Wheel = () => {
         { value: 0, duration: 2000 },
         { value: 20, duration: 1000 },
         { value: 25, duration: 900 },
-        { value: 50, duration: 1000 }
+        { value: 50, duration: 1000 },
       ],
       rotate: [{ value: ballEndRotation, duration: singleSpinDuration }],
       loop: 1,
-      easing: `cubicBezier(${bezier.join(",")})`
+      easing: `cubicBezier(${bezier.join(",")})`,
     });
   }
 
-    useEffect(()=>{
-        let sse = new EventSource("http://localhost:9090/sse");
-        sse.onmessage = (response) => {
-            let resp = JSON.parse(response.data);
-            if(resp.payloadName==="result"){
-                spinWheel(rouletteNumberMap.get(parseInt(resp.payloadValue)));
-            }
-         }
-    })
+  useEffect(() => {
+    var stompClient = null;
+    const onConnected = (frame) => {
+      console.log("connected to ws --" + frame);
+      try {
+        stompClient.subscribe(SPIN_WEBSOCKET_RESULT_URL, onResultReceived);
+      } catch (err) {
+        console.log("Hereee");
+      }
+    };
+
+    const onError = () => {
+      console.log("WS error");
+    };
+
+    let sock = new SockJS(SPIN_WEBSOCKET_URL);
+    stompClient = over(sock);
+    stompClient.connect({}, onConnected, onError);
+
+    const onResultReceived = (payload) => {
+      console.log(payload.body);
+      // const servercount = parseInt(payload.body);
+      // if (servercount >= 0) {
+      //   let countdown = parseInt(servercount / 60) + ":" + (servercount % 60);
+      //   setCount(countdown);
+      // }
+      spinWheel(rouletteNumberMap.get(parseInt(payload.body)));
+      // if (
+      //   servercount < 0 &&
+      //   servercount >= -30 &&
+      //   res1.length === 0 &&
+      //   res2.length === 0
+      // ) {
+      // }
+    };
+    return () => {
+      stompClient.disconnect();
+    };
+  }, []);
 
   return (
     <div className={"roulette-wheel"}>
