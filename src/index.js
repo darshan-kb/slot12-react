@@ -12,6 +12,8 @@ import Redirect from "./component/Redirect";
 import Recharge from "./component/Recharge";
 import Fix from "./component/Fix";
 import Report from "./component/Report";
+import Game from "./component/spincomponents/Game";
+import SpinClaim from "./component/spincomponents/SpinClaim";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const appRouter = createBrowserRouter([
@@ -24,6 +26,7 @@ const appRouter = createBrowserRouter([
         element: <Home />,
       },
       { path: "/claims", element: <Claim /> },
+      { path: "/spinclaims", element: <SpinClaim /> },
       { path: "/slotmachine", element: <Slotmachine /> },
       { path: "/login", element: <Login /> },
       { path: "/redirect", element: <Redirect /> },
@@ -31,6 +34,7 @@ const appRouter = createBrowserRouter([
       { path: "/recharge", element: <Recharge /> },
       { path: "/fix", element: <Fix /> },
       { path: "/report", element: <Report /> },
+      { path: "/spin", element: <Game /> },
     ],
   },
 ]);

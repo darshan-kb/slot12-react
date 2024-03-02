@@ -1,0 +1,48 @@
+.spinqueuecontainer {
+  width: 500px;
+  height: 70px;
+  position: absolute;
+
+  /* margin-top: 6px; */
+}
+.spinqueuebox {
+  width: 430px;
+  height: 60x;
+  margin-left: 20px;
+  margin-top: 0px;
+  border-radius: 10px;
+  position: relative;
+}
+.spinqnumber {
+  text-align: center;
+  vertical-align: middle;
+  line-height: 30px;
+  margin-top: 5px;
+  width: 50px;
+  height: 35px;
+  font-size: 35px;
+  color: white;
+}
+.spinqboxtopsection {
+  width: 50px;
+  height: 50px;
+}
+
+.spinqbox {
+  width: 55px;
+  height: 55px;
+  margin-top: 2px;
+  margin-left: 20px;
+
+  float: left;
+  border: solid rgb(245, 245, 245) 3px;
+  border-radius: 2px;
+}
+
+.spinqtimestamp {
+  margin-right: 5px;
+  /* float: right; */
+  font-size: 10px;
+  font-weight: bolder;
+  color: white;
+}

@@ -1,0 +1,334 @@
+@media (max-width: 1080px) {
+  .spinrightsection {
+    float: right;
+    width: 65%;
+    height: 360px;
+  }
+  /* .winning_lines {
+    display: "block";
+    position: "absolute";
+    margin-left: "0px";
+    margin-top: "50px";
+  } */
+  .betting_board {
+    height: 250px;
+    width: 500px;
+    margin-top: 80px;
+  }
+  .betting_board2 {
+    width: 360px;
+    height: 10px;
+    margin-top: 75px;
+    margin-left: 40px;
+    position: absolute;
+  }
+
+  .betting_board3 {
+    width: 360px;
+    height: 10px;
+    margin-top: 125px;
+    margin-left: 40px;
+    position: absolute;
+  }
+
+  .betting_board4 {
+    width: 360px;
+    height: 10px;
+    margin-top: 175px;
+    margin-left: 40px;
+    position: absolute;
+  }
+  .betting_board5 {
+    width: 8px;
+    height: 150px;
+    float: left;
+    position: absolute;
+    margin-top: 30px;
+    margin-left: 30px;
+  }
+  .betting_board6 {
+    width: 40px;
+    margin-top: 10px;
+    margin-left: 430px;
+    height: 220px;
+    position: absolute;
+    background-color: green;
+    box-shadow: inset 0 0 0 1px white;
+  }
+  .betting_board7 {
+    width: 200px;
+    margin-top: 235px;
+    margin-left: 100px;
+    height: 40px;
+    position: absolute;
+  }
+
+  /* style={{ marginLeft: "35vw", marginTop: "1.5vw" }} */
+  /* style={{
+    display: "block",
+    position: "absolute",
+    marginLeft: "0px",
+    marginTop: "50px",
+  }} */
+  /* style={{
+    width: "600px",
+    height: "10px",
+    marginTop: "85px",
+    position: "absolute",
+  }} */
+
+  .number_board {
+    width: 400px;
+    height: 250px;
+    margin-top: 0px;
+    margin-left: 40px;
+  }
+  /* style={{
+    width: "600px",
+    height: "180px",
+    marginTop: "0px",
+    marginLeft: "0px",
+  }} */
+
+  .number {
+    width: 30px;
+    height: 50px;
+    float: left;
+  }
+
+  .button_2to1 {
+    width: 30px;
+    height: 50px;
+    float: left;
+    box-shadow: inset 0 0 0 1px white;
+    background-color: green;
+  }
+
+  .button_2to1_label {
+    font-weight: bold;
+    font-size: 10px;
+    margin-top: 20px;
+    color: white;
+    cursor: pointer;
+    margin-left: 2px;
+  }
+  /* style={{
+    width: "50px",
+    height: "90px",
+    float: "left",
+    backgroundColor: color,
+    boxShadow: "inset 0 0 0 1px white",
+  }} */
+
+  .number_box {
+    width: 390px;
+    height: 50px;
+    float: left;
+    background-color: white;
+  }
+  /* style={{
+          width: "660px",
+          height: "90px",
+          float: "left",
+          backgroundColor: "white",
+        }} */
+
+  .digits {
+    margin-left: 10px;
+    margin-top: 18px;
+    width: 10px;
+    height: 15px;
+    cursor: pointer;
+    float: left;
+    color: white;
+    font-size: 12px;
+  }
+  /* style={{
+          marginLeft: "15px",
+          marginTop: "40px",
+          width: "20px",
+          height: "20px",
+          cursor: "pointer",
+          float: "left",
+          color: "white",
+          fontSize: "20px",
+        }} */
+
+  .number_0 {
+    width: 20px;
+    margin-top: 30px;
+    margin-left: -20px;
+    height: 150px;
+    position: absolute;
+    background-color: green;
+    box-shadow: inset 0 0 0 1px white;
+  }
+  /* style={{
+          width: "50px",
+          marginTop: "50px",
+          marginLeft: "-50px",
+          height: "270px",
+          position: "absolute",
+          backgroundColor: "green",
+          boxShadow: "inset 0 0 0 1px white",
+        }} */
+  .digit_0 {
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 60px;
+    color: white;
+    cursor: "pointer";
+    margin-left: 5px;
+  }
+
+  /* style={{
+    fontWeight: "bold",
+    fontSize: "20px",
+    marginTop: "135px",
+    color: "white",
+    cursor: "pointer",
+  }} */
+
+  .Bbtop {
+    width: 360px;
+    height: 30px;
+  }
+
+  .top_button {
+    width: 180px;
+    height: 30px;
+    background-color: green;
+    float: left;
+    box-shadow: inset 0 0 0 1px white;
+  }
+
+  .half_digit {
+    margin-top: 5px;
+    font-weight: bold;
+    font-size: 15px;
+    color: white;
+    cursor: pointer;
+    margin-left: 65px;
+  }
+
+  .dozen_box {
+    width: 360px;
+    height: 30px;
+    float: left;
+  }
+
+  .dozen {
+    width: 120px;
+    height: 30px;
+    background-color: green;
+    float: left;
+    box-shadow: inset 0 0 0 1px white;
+  }
+
+  .dozen_label {
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 5px;
+    color: white;
+    cursor: pointer;
+    margin-left: 40px;
+  }
+
+  .bottom_box {
+    width: 360px;
+    height: 30px;
+    float: left;
+  }
+
+  .bottom {
+    width: 90px;
+    height: 30px;
+    background-color: green;
+    float: left;
+    box-shadow: inset 0 0 0 1px white;
+  }
+
+  .bottom_label {
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 5px;
+    color: white;
+    cursor: pointer;
+    margin-left: 30px;
+  }
+
+  .Ttbbetblock {
+    width: 10px;
+    height: 8px;
+    cursor: pointer;
+    float: left;
+  }
+
+  .single_button {
+    cursor: pointer;
+    position: absolute;
+    margin-left: -3px;
+    margin-top: -3px;
+    width: 11px;
+    height: 11px;
+    color: black;
+    background-color: white;
+    border-radius: 100%;
+    /* border-color: yellow; */
+    font-size: 8px;
+    font-weight: bold;
+  }
+
+  .Rtlbb {
+    width: 10px;
+    height: 10px;
+    cursor: pointer;
+    margin-top: top;
+  }
+
+  .Wlcbblock {
+    width: 10px;
+    height: 10px;
+    cursor: pointer;
+    float: left;
+    position: absolute;
+  }
+
+  .chipdeck {
+    text-align: center;
+    vertical-align: middle;
+    line-height: 25px;
+    height: 25px;
+    width: 25px;
+    margin-top: 20px;
+    margin-left: 6px;
+    background-color: white;
+    border-radius: 100%;
+    color: black;
+    font-size: 10px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .selected_chip {
+    text-align: center;
+    vertical-align: middle;
+    line-height: 30px;
+    height: 30px;
+    width: 30px;
+    margin-top: 20px;
+    margin-left: 3px;
+    background-color: white;
+    border-radius: 100%;
+    font-size: 10px;
+    color: "black";
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .selected_chip_label {
+    text-align: center;
+    vertical-align: middle;
+    line-height: 30px;
+  }
+}
