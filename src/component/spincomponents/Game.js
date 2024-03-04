@@ -20,10 +20,7 @@ const Game = () => {
   };
 
   return (
-    <div
-      className="game"
-      style={{ width: "100%", height: "400px", position: "absolute" }}
-    >
+    <div className="game">
       <CNavbar></CNavbar>
       <div className="spinleftsection">
         <div className="spincountdowndiv">

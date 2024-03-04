@@ -70,11 +70,12 @@ function Wlrtl({ left, verticalSplitButton }) {
   });
 }
 
-function Rtlbb({ top, singleNum, currentChip, BoardButtonF, id }) {
+function Rtlbb({ top, singleNum, currentChip, BoardButtonF, id, selector }) {
   //console.log(id+"Here");
   return (
     <div
       className="Rtlbb"
+      id={selector}
       style={{
         marginTop: top,
       }}
@@ -104,7 +105,14 @@ function Wlcb({ top, left, length, chipButton }) {
   );
 }
 
-function Wlcbblock({ left, top, singleNum, currentChip, BoardButtonF }) {
+function Wlcbblock({
+  left,
+  top,
+  singleNum,
+  currentChip,
+  BoardButtonF,
+  selector,
+}) {
   //left=left+"px";
   //console.log(left+" Here 2");
   //console.log(top + "hhhh");
@@ -115,6 +123,7 @@ function Wlcbblock({ left, top, singleNum, currentChip, BoardButtonF }) {
         marginLeft: left,
         marginTop: top,
       }}
+      id={selector}
       onClick={BoardButtonF}
     >
       <SingleButton
@@ -663,12 +672,14 @@ const Board = ({ updateBalance }) => {
             return (
               <div
                 key={"betting_board5" + i}
-                className="betting_board5"
+                className={"betting_board5"}
+                id={"betting_board5_" + i}
                 style={{ marginLeft: WlcbA[i] + 10 + "px" }}
               >
                 <Rtlbb
                   key={"rtlbb1" + i}
                   id={i}
+                  selector={"rtlbb1"}
                   top={"20px"}
                   singleNum={boardMap[3][i]}
                   BoardButtonF={() => BoardButtonF(i, 3)}
@@ -677,6 +688,7 @@ const Board = ({ updateBalance }) => {
                 <Rtlbb
                   key={"rtlbb2" + (i + 11)}
                   id={i + 11}
+                  selector={"rtlbb2"}
                   top={"40px"}
                   singleNum={boardMap[3][i + 11]}
                   BoardButtonF={() => BoardButtonF(i + 11, 3)}
@@ -685,6 +697,7 @@ const Board = ({ updateBalance }) => {
                 <Rtlbb
                   key={"rtlbb3" + (i + 22)}
                   id={i + 22}
+                  selector={"rtlbb2"}
                   top={"40px"}
                   singleNum={boardMap[3][i + 22]}
                   BoardButtonF={() => BoardButtonF(i + 22, 3)}
@@ -700,6 +713,7 @@ const Board = ({ updateBalance }) => {
                 key={i + "corner"}
                 left={WlcbA[i] + 10 + "px"}
                 top={"75px"}
+                selector={"corner_" + i}
                 singleNum={boardMap[4][i]}
                 BoardButtonF={() => BoardButtonF(i, 4)}
                 currentChip={ringMap[4][i]}
@@ -713,6 +727,7 @@ const Board = ({ updateBalance }) => {
                 key={i + "corner"}
                 left={WlcbA[i - 11] + "px"}
                 top={"125px"}
+                selector={"corner_" + i}
                 singleNum={boardMap[4][i]}
                 BoardButtonF={() => BoardButtonF(i, 4)}
                 currentChip={ringMap[4][i]}
