@@ -208,8 +208,9 @@
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
   .slotmachinecontainer {
+    position: absolute;
     /* background-color: purple; */
     width: 100%;
     height: 100%;

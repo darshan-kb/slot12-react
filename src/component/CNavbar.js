@@ -74,14 +74,20 @@ const CNavbar = ({ theme, headingflag }) => {
             // <div className="navelement">
             //   <Link to="/claims">Claims</Link>
             // </div>
-            <select onChange={(e) => claimDropdown(e.target.value)}>
+            <select
+              className="optiondiv"
+              onChange={(e) => claimDropdown(e.target.value)}
+            >
               <option value={"/claims"}>claim</option>
               <option value={"/claims"}>slot</option>
               <option value={"/spinclaims"}>spin</option>
             </select>
           )}
           {isAdmin && (
-            <select onChange={(e) => adminDropdown(e.target.value)}>
+            <select
+              className="optiondiv"
+              onChange={(e) => adminDropdown(e.target.value)}
+            >
               <option value={"/"}>Admin</option>
               <option value={"/recharge"}>Recharge</option>
               <option value={"/fix"}>Fix</option>

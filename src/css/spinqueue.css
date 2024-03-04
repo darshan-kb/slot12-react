@@ -1,48 +1,101 @@
-.spinqueuecontainer {
-  width: 500px;
-  height: 70px;
-  position: absolute;
+@media (max-width: 1080px) {
+  .spinqueuecontainer {
+    width: 500px;
+    height: 70px;
+    position: absolute;
 
-  /* margin-top: 6px; */
-}
-.spinqueuebox {
-  width: 430px;
-  height: 60x;
-  margin-left: 20px;
-  margin-top: 0px;
-  border-radius: 10px;
-  position: relative;
-}
-.spinqnumber {
-  text-align: center;
-  vertical-align: middle;
-  line-height: 30px;
-  margin-top: 5px;
-  width: 50px;
-  height: 35px;
-  font-size: 35px;
-  color: white;
-}
-.spinqboxtopsection {
-  width: 50px;
-  height: 50px;
-}
+    /* margin-top: 6px; */
+  }
+  .spinqueuebox {
+    width: 430px;
+    height: 60x;
+    margin-left: 20px;
+    margin-top: 0px;
+    border-radius: 10px;
+    position: relative;
+  }
+  .spinqnumber {
+    text-align: center;
+    vertical-align: middle;
+    line-height: 30px;
+    margin-top: 5px;
+    width: 50px;
+    height: 35px;
+    font-size: 35px;
+    color: white;
+  }
+  .spinqboxtopsection {
+    width: 50px;
+    height: 50px;
+  }
 
-.spinqbox {
-  width: 55px;
-  height: 55px;
-  margin-top: 2px;
-  margin-left: 20px;
+  .spinqbox {
+    width: 55px;
+    height: 55px;
+    margin-top: 2px;
+    margin-left: 20px;
 
-  float: left;
-  border: solid rgb(245, 245, 245) 3px;
-  border-radius: 2px;
+    float: left;
+    border: solid rgb(245, 245, 245) 3px;
+    border-radius: 2px;
+  }
+
+  .spinqtimestamp {
+    margin-right: 5px;
+    /* float: right; */
+    font-size: 10px;
+    font-weight: bolder;
+    color: white;
+  }
 }
+@media (max-width: 400px) {
+  .spinqueuecontainer {
+    width: 350px;
+    height: 50px;
+    float: none;
+    /* position: absolute; */
 
-.spinqtimestamp {
-  margin-right: 5px;
-  /* float: right; */
-  font-size: 10px;
-  font-weight: bolder;
-  color: white;
+    /* margin-top: 400px; */
+  }
+  .spinqueuebox {
+    width: 350px;
+    height: 50x;
+    margin-left: 20px;
+    margin-top: 0px;
+    border-radius: 10px;
+    position: relative;
+  }
+  .spinqnumber {
+    text-align: center;
+    vertical-align: middle;
+    /* line-height: 0px; */
+    margin-top: -30px;
+    width: 50px;
+    height: 35px;
+    font-size: 25px;
+    color: white;
+  }
+  .spinqboxtopsection {
+    width: 50px;
+    height: 50px;
+  }
+
+  .spinqbox {
+    width: 40px;
+    height: 40px;
+    margin-top: 2px;
+    margin-left: 20px;
+
+    float: left;
+    border: solid rgb(245, 245, 245) 3px;
+    border-radius: 2px;
+  }
+
+  .spinqtimestamp {
+    margin-right: 5px;
+    /* float: right; */
+    font-size: 10px;
+    font-weight: bolder;
+    color: white;
+  }
 }

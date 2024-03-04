@@ -332,3 +332,416 @@
     line-height: 30px;
   }
 }
+
+@media (max-width: 400px) {
+  .spinrightsection {
+    width: 100%;
+    height: 60%;
+  }
+  .betting_board {
+    height: 250px;
+    width: 350px;
+    /* margin-top: 80px; */
+  }
+  .winning_lines {
+    /* display: "block"; */
+    position: absolute;
+    margin-left: 0px;
+    margin-top: 50px;
+  }
+  .betting_board2 {
+    width: 300px;
+    height: 10px;
+    margin-top: 15px;
+    margin-left: 30px;
+    position: absolute;
+  }
+  .betting_board3 {
+    width: 300px;
+    height: 10px;
+    margin-top: 55px;
+    margin-left: 30px;
+    position: absolute;
+  }
+
+  .betting_board4 {
+    width: 300px;
+    height: 10px;
+    margin-top: 95px;
+    margin-left: 30px;
+    position: absolute;
+  }
+  #betting_board5_0 {
+    width: 8px;
+    height: 120px;
+    float: left;
+    position: absolute;
+    margin-top: -20px;
+    margin-left: 50px !important;
+    /* margin-right: 30px; */
+    /* margin-bottom: 50px; */
+  }
+  #betting_board5_1 {
+    width: 8px;
+    height: 120px;
+    float: left;
+    position: absolute;
+    margin-top: -20px;
+    margin-left: 75px !important;
+    /* margin-right: 30px; */
+    /* margin-bottom: 50px; */
+  }
+  #betting_board5_2 {
+    width: 8px;
+    height: 120px;
+    float: left;
+    position: absolute;
+    margin-top: -20px;
+    margin-left: 100px !important;
+    /* margin-right: 30px; */
+    /* margin-bottom: 50px; */
+  }
+  #betting_board5_3 {
+    width: 8px;
+    height: 120px;
+    float: left;
+    position: absolute;
+    margin-top: -20px;
+    margin-left: 125px !important;
+    /* margin-right: 30px; */
+    /* margin-bottom: 50px; */
+  }
+  #betting_board5_4 {
+    width: 8px;
+    height: 120px;
+    float: left;
+    position: absolute;
+    margin-top: -20px;
+    margin-left: 150px !important;
+    /* margin-right: 30px; */
+    /* margin-bottom: 50px; */
+  }
+  #betting_board5_5 {
+    width: 8px;
+    height: 120px;
+    float: left;
+    position: absolute;
+    margin-top: -20px;
+    margin-left: 175px !important;
+    /* margin-right: 30px; */
+    /* margin-bottom: 50px; */
+  }
+  #betting_board5_6 {
+    width: 8px;
+    height: 120px;
+    float: left;
+    position: absolute;
+    margin-top: -20px;
+    margin-left: 200px !important;
+    /* margin-right: 30px; */
+    /* margin-bottom: 50px; */
+  }
+  #betting_board5_7 {
+    width: 8px;
+    height: 120px;
+    float: left;
+    position: absolute;
+    margin-top: -20px;
+    margin-left: 225px !important;
+    /* margin-right: 30px; */
+    /* margin-bottom: 50px; */
+  }
+  #betting_board5_8 {
+    width: 8px;
+    height: 120px;
+    float: left;
+    position: absolute;
+    margin-top: -20px;
+    margin-left: 250px !important;
+    /* margin-right: 30px; */
+    /* margin-bottom: 50px; */
+  }
+  #betting_board5_9 {
+    width: 8px;
+    height: 120px;
+    float: left;
+    position: absolute;
+    margin-top: -20px;
+    margin-left: 275px !important;
+    /* margin-right: 30px; */
+    /* margin-bottom: 50px; */
+  }
+  #betting_board5_10 {
+    width: 8px;
+    height: 120px;
+    float: left;
+    position: absolute;
+    margin-top: -20px;
+    margin-left: 300px !important;
+    /* margin-right: 30px; */
+    /* margin-bottom: 50px; */
+  }
+  #betting_board5_11 {
+    width: 8px;
+    height: 120px;
+    float: left;
+    position: absolute;
+    margin-top: -20px;
+    margin-left: 325px !important;
+    /* margin-right: 30px; */
+    /* margin-bottom: 50px; */
+  }
+  #betting_board5_12 {
+    width: 8px;
+    height: 120px;
+    float: left;
+    position: absolute;
+    margin-top: -20px;
+    margin-left: 350px !important;
+    /* margin-right: 30px; */
+    /* margin-bottom: 50px; */
+  }
+  .Rtlbb {
+    width: 10px;
+    height: 10px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  #rtlbb1 {
+    margin-top: 15px !important;
+  }
+  #rtlbb2 {
+    margin-top: 30px !important;
+  }
+  #rtlbb3 {
+    margin-top: 45x !important;
+  }
+
+  #corner_0 {
+    margin-left: 50px !important;
+    margin-top: 15px !important;
+  }
+  #corner_1 {
+    margin-left: 75px !important;
+    margin-top: 15px !important;
+  }
+  #corner_2 {
+    margin-left: 100px !important;
+    margin-top: 15px !important;
+  }
+  #corner_3 {
+    margin-left: 125px !important;
+    margin-top: 15px !important;
+  }
+  #corner_4 {
+    margin-left: 150px !important;
+    margin-top: 15px !important;
+  }
+  #corner_5 {
+    margin-left: 175px !important;
+    margin-top: 15px !important;
+  }
+  #corner_6 {
+    margin-left: 200px !important;
+    margin-top: 15px !important;
+  }
+  #corner_7 {
+    margin-left: 225px !important;
+    margin-top: 15px !important;
+  }
+  #corner_8 {
+    margin-left: 250px !important;
+    margin-top: 15px !important;
+  }
+  #corner_9 {
+    margin-left: 275px !important;
+    margin-top: 15px !important;
+  }
+  #corner_10 {
+    margin-left: 300px !important;
+    margin-top: 15px !important;
+  }
+  #corner_11 {
+    margin-left: 50px !important;
+    margin-top: 55px !important;
+  }
+  #corner_12 {
+    margin-left: 75px !important;
+    margin-top: 55px !important;
+  }
+  #corner_13 {
+    margin-left: 100px !important;
+    margin-top: 55px !important;
+  }
+  #corner_14 {
+    margin-left: 125px !important;
+    margin-top: 55px !important;
+  }
+  #corner_15 {
+    margin-left: 150px !important;
+    margin-top: 55px !important;
+  }
+  #corner_16 {
+    margin-left: 175px !important;
+    margin-top: 55px !important;
+  }
+  #corner_17 {
+    margin-left: 200px !important;
+    margin-top: 55px !important;
+  }
+  #corner_18 {
+    margin-left: 225px !important;
+    margin-top: 55px !important;
+  }
+  #corner_19 {
+    margin-left: 250px !important;
+    margin-top: 55px !important;
+  }
+  #corner_20 {
+    margin-left: 275px !important;
+    margin-top: 55px !important;
+  }
+  #corner_21 {
+    margin-left: 300px !important;
+    margin-top: 55px !important;
+  }
+
+  .Bbtop {
+    width: 300px;
+    height: 30px;
+  }
+
+  .top_button {
+    width: 150px;
+    height: 30px;
+    background-color: green;
+    float: left;
+    box-shadow: inset 0 0 0 1px white;
+  }
+  .number_board {
+    width: 400px;
+    height: 250px;
+    margin-top: 0px;
+    margin-left: 30px;
+  }
+  .number_box {
+    width: 330px;
+    height: 40px;
+    float: left;
+    background-color: white;
+  }
+  .number {
+    width: 25px;
+    height: 40px;
+    float: left;
+  }
+
+  .button_2to1 {
+    width: 30px;
+    height: 40px;
+    float: left;
+    box-shadow: inset 0 0 0 1px white;
+    background-color: green;
+  }
+  .chipdeck {
+    text-align: center;
+    vertical-align: middle;
+    line-height: 25px;
+    height: 25px;
+    width: 25px;
+    margin-top: 8px;
+    margin-left: 30px;
+    background-color: white;
+    border-radius: 100%;
+    color: black;
+    font-size: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    float: left;
+  }
+
+  .selected_chip {
+    text-align: center;
+    vertical-align: middle;
+    line-height: 30px;
+    height: 30px;
+    width: 30px;
+    margin-top: 5px;
+    margin-left: 20px;
+    background-color: white;
+    border-radius: 100%;
+    font-size: 10px;
+    color: "black";
+    font-weight: bold;
+    cursor: pointer;
+    float: left;
+  }
+
+  .selected_chip_label {
+    text-align: center;
+    vertical-align: middle;
+    line-height: 30px;
+  }
+  .betting_board6 {
+    width: 250px;
+    margin-top: 220px;
+    margin-left: 50px;
+    height: 40px;
+    position: absolute;
+    background-color: green;
+    box-shadow: inset 0 0 0 1px white;
+  }
+
+  .dozen_box {
+    width: 300px;
+    height: 30px;
+    float: left;
+  }
+
+  .dozen {
+    width: 100px;
+    height: 30px;
+    background-color: green;
+    float: left;
+    box-shadow: inset 0 0 0 1px white;
+  }
+
+  .dozen_label {
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 5px;
+    color: white;
+    cursor: pointer;
+    margin-left: 25px;
+  }
+  .bottom_box {
+    width: 300px;
+    height: 30px;
+    float: left;
+  }
+
+  .bottom {
+    width: 75px;
+    height: 30px;
+    background-color: green;
+    float: left;
+    box-shadow: inset 0 0 0 1px white;
+  }
+
+  .bottom_label {
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 5px;
+    color: white;
+    cursor: pointer;
+    margin-left: 20px;
+  }
+
+  .betting_board7 {
+    width: 200px;
+    margin-top: 255px;
+    margin-left: 100px;
+    height: 40px;
+    position: absolute;
+  }
+}
