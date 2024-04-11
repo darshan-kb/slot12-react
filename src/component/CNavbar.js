@@ -6,6 +6,7 @@ import useGetUser from "./utils/hooks/useGetUser";
 import { Link, useNavigate } from "react-router-dom";
 import UserContext from "./utils/UserContext";
 import useGetBalance from "./utils/hooks/useGetBalance";
+import { SIGNUP_URL } from "./utils/Url";
 const CNavbar = ({ theme, headingflag }) => {
   // let [flag, setFlag] = useState(
   //   sessionStorage.getItem("id_token") == null ? false : true
@@ -59,6 +60,11 @@ const CNavbar = ({ theme, headingflag }) => {
           {!isAuthorized && (
             <div className="navelement">
               <Link to="/login">Login</Link>
+            </div>
+          )}
+          {!isAuthorized && (
+            <div className="navelement">
+              <a href={SIGNUP_URL}> Register</a>
             </div>
           )}
           {

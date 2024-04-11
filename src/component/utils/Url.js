@@ -9,3 +9,4 @@ export const SPIN_GET_CLAIM_URL = "http://192.168.1.13:8071/game/api/claims";
 export const SPIN_CLAIM_BET_URL = "http://192.168.1.13:8071/game/api/claims";
 export const SPIN_QUEUE = "http://192.168.1.13:8071/game/queue";
 export const SPIN_QUEUE_WEBSOCKET = "/queue/data";
+export const SIGNUP_URL = "http://192.168.1.13:8080/api/registration";

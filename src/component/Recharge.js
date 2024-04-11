@@ -3,7 +3,7 @@ import "../css/recharge.css";
 import { useState, useContext } from "react";
 import UserContext from "./utils/UserContext";
 const Recharge = () => {
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(5);
   const [email, setEmail] = useState("");
   const [otp, setOtp] = useState("");
   const [enableOtpbox, setEnableOtpbox] = useState(false);
@@ -88,6 +88,7 @@ const Recharge = () => {
         //setEnableOtpbox(true);
         console.log(result);
         //result = JSON.parse(result);
+        alert("successfully recharged with " + result.recharge);
         setError(
           "recharge of " +
             result.recharge +
