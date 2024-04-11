@@ -32,7 +32,7 @@ const Game = () => {
       </div>
       <div className="spinrightsection">
         <SpinQueue></SpinQueue>
-        <Board updateBalance={() => updateBalance}></Board>
+        <Board updateBalance={updateBalance}></Board>
       </div>
     </div>
   );

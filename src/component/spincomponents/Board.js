@@ -613,7 +613,10 @@ const Board = ({ updateBalance }) => {
 
         clear();
       })
-      .catch((error) => console.log("error", error));
+      .catch((error) => {
+        alert("error : " + error);
+        console.log("error", error);
+      });
   }
 
   return (
