@@ -22,7 +22,7 @@ const Redirect = () => {
       );
 
       const verifier = sessionStorage.getItem("codeVerifier");
-      //console.log(verifier);
+      console.log("verifier in "+verifier);
       const initialUrl = process.env.REACT_APP_INITIAL_URL;
       const url = `${initialUrl}&code=${code}&code_verifier=${verifier}`;
       console.log(url);
