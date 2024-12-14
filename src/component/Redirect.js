@@ -21,7 +21,7 @@ const Redirect = () => {
         `Basic ${Buffer.from(`${client}:${secret}`).toString("base64")}`
       );
 
-      
+      const verifier = sessionStorage.getItem("codeVerifier");
       const initialUrl = process.env.REACT_APP_INITIAL_URL;
       const url = `${initialUrl}&code=${code}&code_verifier=${verifier}`;
       console.log(url);
