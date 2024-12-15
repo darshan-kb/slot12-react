@@ -51,7 +51,7 @@ const CNavbar = ({ theme, headingflag }) => {
   return (
     <>
       <div className="navbar2">
-        <div className="newheading">Kazino</div>
+        <div className="newheading">Casino</div>
         <div className="toolbar2">
           {isAuthorized && <div className="navelement">{user}</div>}
           <div className="navelement">
