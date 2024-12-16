@@ -34,7 +34,7 @@ const Redirect = () => {
           const token = await response.json();
           console.log(token);
           if (token?.id_token) {
-            sessionStorage.setItem("id_token", token.id_token);
+            sessionStorage.setItem("id_token", token.access_token);
             navigate("/");
           }
         })
